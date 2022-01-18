@@ -1,5 +1,6 @@
 const csrf = require('csurf');
 const db = require('../db/models');
+const {check} = require('express-validator');
 
 const csrfProtection = csrf({ cookie: true });
 
