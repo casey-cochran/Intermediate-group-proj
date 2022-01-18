@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: {
       allowNull: false,
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(255),
       unique: true
     },
     hashedPass: {
       allowNull: false,
-      type: DataTypes.STRING(255)
+      type: DataTypes.STRING.BINARY
     }
   }, {});
   User.associate = function(models) {
