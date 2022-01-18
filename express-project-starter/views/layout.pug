@@ -7,10 +7,10 @@ html
   body
     if locals.authenticated
       span(class='welcome') Welcome #{user.firstName}!
-      form(class='logout' action='/user/logout' method='post')
+      form(class='logout' action='/logout' method='post')
         button(class='logout-button' type='submit') Logout
     else
       span(class='login-and-register')
-        a(class='login' href='/user/login') Login
-        a(class='register' href='/user/sign-up') Register
+        a(class='login' href='/login') Login
+        a(class='register' href='/users/sign-up') Register
     block content
