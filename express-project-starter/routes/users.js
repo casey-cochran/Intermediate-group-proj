@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 const db = require('../db/models')
 const bcrypt = require('bcryptjs')
-const { csrfProtection, asyncHandler } = require('./utils');
+const { csrfProtection, asyncHandler, signUpValidators } = require('./utils');
+
 
 
 
@@ -22,7 +23,7 @@ router.get('/sign-up', csrfProtection, (req, res) => {
 })
 
 router.post('/sign-up',
-    userValidators,
+    signUpValidators,
     csrfProtection,
     asyncHandler (async (req, res) => {
         const {
