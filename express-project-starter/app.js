@@ -32,7 +32,7 @@ app.use(
     resave: false,
   })
 );
-app.user(restoreUser);
+app.use(restoreUser);
 // create Session table if it doesn't already exist
 store.sync();
 
