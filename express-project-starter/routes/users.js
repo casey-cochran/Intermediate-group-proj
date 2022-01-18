@@ -3,7 +3,8 @@ var router = express.Router();
 const db = require('../db/models')
 const bcrypt = require('bcryptjs')
 const { csrfProtection, asyncHandler, signUpValidators } = require('./utils');
-
+const validationResult = require('express-validator');
+const { userLogout } = require('../auth.js');
 
 
 
@@ -51,9 +52,15 @@ router.post('/sign-up',
             res.render('user-registration', {
                 title: 'Register',
                 user,
-                csrfToken: req.csrfToken()
+                csrfToken: req.csrfToken(),
+                errors
             });
         }
 }));
+
+router.post('/logout', (req, res) => {
+  userLogout(req, res);
+   res.redirect('/');
+ });
 
 module.exports = router;
