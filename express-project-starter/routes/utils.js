@@ -47,6 +47,17 @@ const signUpValidators = [
     .withMessage('Password must not be more than 50 characters')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and a special character'),
+  check('confirmPassword')
+    .exists({checkFalsy: true})
+    .withMessage('Please provide your password')
+    .isLength({max: 50})
+    .withMessage('Password must not be more than 50 characters')
+    .custom((value, {req}) => {
+      if(value !== req.body.password){
+        throw new Error('Passwords do not match')
+      }
+      return true;
+    })
 ];
 
 module.exports = {
