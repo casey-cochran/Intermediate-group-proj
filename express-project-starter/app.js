@@ -11,7 +11,7 @@ const usersRouter = require('./routes/users');
 const loginRouter = require('./routes/login');
 const {restoreUser} = require('./auth');
 const {sessionSecret} = require('./config');
-const hobbyPostRouter = require('./routes/hobbyposts-c')
+const hobbyPostRouter = require('./routes/hobbyposts')
 
 const app = express();
 
