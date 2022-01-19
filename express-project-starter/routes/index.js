@@ -10,9 +10,13 @@ router.get('/', asyncHandler(async (req, res) => {
     include: {model: db.User}
   })
 
+  const time = hobbyPosts.createdAt
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', date: 'numeric' }
+  // const value = time.toLocaleDateString('en-Us', options)
 
   res.render('home-page', {
-    hobbyPosts
+    hobbyPosts,
+    options
   });
 
 }));
