@@ -2,6 +2,12 @@ extends layout.pug
 
 
 block content
-    form(action=`/${hobbyPost.id}/delete` method='post')
-    button(type='submit') Delete Post
-    a(href='/hobbyPosts') Cancel
+    form(action=`/${post.id}/delete` method='post')
+        div
+            p= `${post.title}`
+        div
+            p= `${post.content}`
+        div
+
+            button(type='submit') Delete Post
+            a(href='/') Cancel
