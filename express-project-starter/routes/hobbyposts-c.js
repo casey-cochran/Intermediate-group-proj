@@ -88,10 +88,19 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
 
 
 
+router.post('/:id(\\d+)/delete', authorize, asyncHandler(async(req,res) => {
+    const user = parseInt(req.params.id, 10);
+    const {userId} = req.session.auth;
 
-
-
-
+    if(user === userId){
+        const postId = parseInt(req.params.hobbyPostId, 10);
+        const post = await db.HobbyPost.findByPk(postId);
+        await post.destroy();
+        res.redirect('/')
+    }else {
+        throw new Error('Cannot edit delete another users Post');
+    }
+}))
 
 
 
