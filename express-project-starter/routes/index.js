@@ -11,7 +11,7 @@ router.get('/', asyncHandler(async (req, res) => {
   })
 
   const time = hobbyPosts.createdAt
-  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', date: 'numeric' }
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
   // const value = time.toLocaleDateString('en-Us', options)
 
   res.render('home-page', {
