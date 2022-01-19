@@ -4,7 +4,7 @@ const db = require('../db/models')
 const bcrypt = require('bcryptjs')
 const { csrfProtection, asyncHandler, signUpValidators } = require('./utils');
 const { validationResult } = require('express-validator');
-const { userLogout } = require('../auth.js');
+const { userLogin, userLogout } = require('../auth.js');
 
 
 
@@ -46,7 +46,10 @@ router.post('/sign-up',
       const hashedPassword = await bcrypt.hash(password, 10)
       user.hashedPass = hashedPassword;
       await user.save();
-      res.redirect('/')
+      userLogin(req, res, user);
+      return req.session.save(() => res.redirect('/'))
+
+      // res.redirect('/')
     } else {
       const errors = validatorErrors.array().map((err) => err.msg);
       res.render('user-registration', {
