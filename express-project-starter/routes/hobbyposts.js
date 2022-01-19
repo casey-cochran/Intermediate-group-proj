@@ -26,15 +26,16 @@ const postValidators = [
         .withMessage('Must not be more than 4000 characters')
 ]
 
-router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async (req, res) => {
+router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(async (req, res) => {
     const { title, content } = req.body;
-    const post = { title, content }
+    // const post = { title, content }
+    const { userId } = req.session.auth
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await db.HobbyPost.create({ post });
-        res.redirect('/hobbyPosts') //redirect to newly created post?
+        await db.HobbyPost.create({ title, content, userId });
+        res.redirect('/') //redirect to newly created post?
 
     } else {
         const errors = validatorErrors.array().map(error => error.msg);
@@ -48,8 +49,8 @@ router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async (
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
-    const post = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-    res.render('hobby-post', { post })
+    const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+    res.render('hobby-post', { hobbyPost })
 }))
 
 
@@ -57,7 +58,7 @@ router.get('/edit/:id(\\d+)', csrfProtection,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId);
-        res.render('new-post', {
+        res.render('edit-post', {
             title: 'Edit Post',
             post,
             csrfToken: req.csrfToken(),
@@ -84,7 +85,7 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
             res.redirect(`/hobbyPost/${postId}`);
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('new-post', {
+            res.render('edit-post', {
                 title: 'Edit Post',
                 post: { ...post, id: postId },
                 errors,

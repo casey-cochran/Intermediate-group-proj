@@ -2,11 +2,9 @@ extends layout.pug
 
 include utils.pug
 
-
 block content
-    +validationErrorSummary(errors)
-
-    form(action='/hobbyPosts/new' method='post')
+  +validationErrorSummary(errors)
+  form(action=`/hobbyPost/edit/${post.id}` method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         div
             label Title
@@ -15,5 +13,5 @@ block content
             label Content
             textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80')
         div
-            button(type='submit') Post
-            a(href='/') Cancel
+            button(type='submit') Update Post
+            a(href=`/hobbyPosts/${post.id}`) Cancel
