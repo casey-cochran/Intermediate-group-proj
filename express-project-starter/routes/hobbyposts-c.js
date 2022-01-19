@@ -3,6 +3,7 @@ const db = require('../db/models');
 const {csrfProtection, asyncHandler} = require('./utils');
 const { authorize } = require('../auth');
 const {check, validationResult} = require('express-validator');
+const { user } = require('pg/lib/defaults');
 
 const router = express.Router();
 
@@ -45,6 +46,45 @@ router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async(r
     }
 }))
 
+router.get('/edit/:id(\\d+)', csrfProtection,
+    asyncHandler(async (req, res) => {
+        const postId = parseInt(req.params.id, 10);
+        const post = await db.HobbyPost.findByPk(postId);
+        res.render('new-post', {
+            title: 'Edit Post',
+            post,
+            csrfToken: req.csrfToken(),
+        });
+    }));
+
+router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
+    asyncHandler(async (req, res) => {
+        const postId = parseInt(req.params.id, 10);
+        const postToUpdate = await db.HobbyPost.findByPk(postId);
+
+        const {
+            title, content,
+        } = req.body;
+
+        const post = {
+            title, content,
+        };
+
+        const validatorErrors = validationResult(req);
+
+        if (validatorErrors.isEmpty()) {
+            await postToUpdate.update(post);
+            res.redirect(`/hobbyPost/${postId}`);
+        } else {
+            const errors = validatorErrors.array().map((error) => error.msg);
+            res.render('new-post', {
+                title: 'Edit Post',
+                post: { ...post, id: postId },
+                errors,
+                csrfToken: req.csrfToken(),
+            });
+        }
+    }));
 
 
 
