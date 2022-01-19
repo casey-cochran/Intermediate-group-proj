@@ -10,6 +10,6 @@ block content
     tbody
       each hobbyPost in hobbyPosts
         tr
-          td= `${hobbyPost.user.firstName} ${hobbyPost.user.lastName}`
+          td= `${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
           td= hobbyPost.title
-          td= hobbyPost.sharedOn
+          td= hobbyPost.createdAt.toLocaleDateString(undefined, options)
