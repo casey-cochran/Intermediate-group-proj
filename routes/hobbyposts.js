@@ -112,7 +112,7 @@ router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
     const { userId } = req.session.auth;
 
     if (user === userId) {
-        const postId = parseInt(req.params.hobbyPostId, 10);
+        const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId);
         await post.destroy();
         res.redirect('/')
