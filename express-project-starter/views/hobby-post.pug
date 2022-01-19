@@ -1,0 +1,6 @@
+extends layout.pug
+
+block content
+    div= `Author: ${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
+    div= `HobbyPost Title: ${hobbyPost.title}`
+    div= hobbyPost.content

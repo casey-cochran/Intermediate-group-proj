@@ -49,8 +49,8 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
-    const post = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-    res.render('hobby-post', { post })
+    const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+    res.render('hobby-post', { hobbyPost })
 }))
 
 
