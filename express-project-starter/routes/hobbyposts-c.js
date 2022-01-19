@@ -7,7 +7,7 @@ const {check, validationResult} = require('express-validator');
 const router = express.Router();
 
 
-router.get('/new', csrfProtection, (req,res) => {
+router.get('/new',authorize, csrfProtection, (req,res) => {
 
     res.render('new-post', {csrfToken: req.csrfToken()});
 })
@@ -25,7 +25,7 @@ const postValidators = [
         .withMessage('Must not be more than 4000 characters')
 ]
 
-router.post('/', postValidators, csrfProtection, asyncHandler(async(req,res) => {
+router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async(req,res) => {
     const {title, content} = req.body;
     const post = {title, content}
 
