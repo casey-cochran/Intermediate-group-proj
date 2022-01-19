@@ -7,7 +7,12 @@ block content
     +validationErrorSummary(errors)
     form(action='/new' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Title', 'title', title)
-        label Content
-        textarea(name='content' value=content)
-        button(type='submit') Post
+        div
+            label Title
+            input(type='text' name='title' value=title size='40')
+        div
+            label Content
+            textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80')
+        div
+            button(type='submit') Post
+            a(href='/') Cancel

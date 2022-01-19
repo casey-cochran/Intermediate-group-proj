@@ -30,7 +30,7 @@ router.post('/', csrfProtection, loginValidators,
 
             if (user !== null) {
                 const passwordsMatch = await bcrypt.compare(password, user.hashedPass.toString());
-                if (passwordsMatch) {    
+                if (passwordsMatch) {
                     userLogin(req, res, user);
                     // return res.redirect('/');
                     return req.session.save(() => res.redirect('/'))
@@ -49,5 +49,19 @@ router.post('/', csrfProtection, loginValidators,
         });
     }));
 
+router.get('/demo-login', asyncHandler(async (req, res) => {
+
+    const user = await db.User.findOne({ where: { email: 'demo@demo.com' } });
+
+    userLogin(req, res, user);
+    return req.session.save(() => res.redirect('/'))
+}));
+
+// router.post('/demo-login', (req, res) => {
+//         const user = db.User.findOne({ where: { email: 'demo@demo.com' } });
+
+//     userLogin(req, res, user);
+//     return req.session.save(() => res.redirect('/'))
+// })
 
 module.exports = router;

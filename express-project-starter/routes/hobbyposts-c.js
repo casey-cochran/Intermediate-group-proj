@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/new',authorize, csrfProtection, (req,res) => {
 
     res.render('new-post', {csrfToken: req.csrfToken()});
-})
+});
 
 const postValidators = [
     check('title')
@@ -34,7 +34,7 @@ router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async(r
 
     if(validatorErrors.isEmpty()){
         await db.HobbyPost.create({post});
-        res.redirect('/posts') //redirect to newly created post?
+        res.redirect('/hobbyPosts') //redirect to newly created post?
 
     }else {
         const errors = validatorErrors.array().map(error => error.msg);
