@@ -53,10 +53,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 
-
-
-
-
 router.get('/edit/:id(\\d+)', csrfProtection,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
