@@ -5,7 +5,7 @@ include utils.pug
 
 block content
     +validationErrorSummary(errors)
-    form(action='/new' method='post')
+    form(action='/hobbyPosts/new' method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         div
             label Title

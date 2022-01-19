@@ -26,15 +26,16 @@ const postValidators = [
         .withMessage('Must not be more than 4000 characters')
 ]
 
-router.post('/', authorize, postValidators, csrfProtection, asyncHandler(async (req, res) => {
+router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(async (req, res) => {
     const { title, content } = req.body;
-    const post = { title, content }
+    // const post = { title, content }
+    const { userId } = req.session.auth
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
-        await db.HobbyPost.create({ post });
-        res.redirect('/hobbyPosts') //redirect to newly created post?
+        await db.HobbyPost.create({ title, content, userId });
+        res.redirect('/') //redirect to newly created post?
 
     } else {
         const errors = validatorErrors.array().map(error => error.msg);
