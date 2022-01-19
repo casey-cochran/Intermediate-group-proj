@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
-    div= `Author: ${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
-    div= `HobbyPost Title: ${hobbyPost.title}`
+    div= `${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
+    div= hobbyPost.createdAt.toLocaleDateString(undefined, options)
+    div= hobbyPost.title
     div= hobbyPost.content

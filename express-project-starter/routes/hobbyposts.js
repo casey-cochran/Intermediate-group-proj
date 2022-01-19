@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { authorize } = require('../auth');
-const {check, validationResult} = require('express-validator');
+const { check, validationResult } = require('express-validator');
 const { user } = require('pg/lib/defaults');
 
 const router = express.Router();
@@ -50,7 +50,8 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-    res.render('hobby-post', { hobbyPost })
+    const options = { month: 'short', day: 'numeric' }
+    res.render('hobby-post', { hobbyPost, options })
 }))
 
 
@@ -97,16 +98,16 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
 
 
 
-router.post('/:id(\\d+)/delete', authorize, asyncHandler(async(req,res) => {
+router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
     const user = parseInt(req.params.id, 10);
-    const {userId} = req.session.auth;
+    const { userId } = req.session.auth;
 
-    if(user === userId){
+    if (user === userId) {
         const postId = parseInt(req.params.hobbyPostId, 10);
         const post = await db.HobbyPost.findByPk(postId);
         await post.destroy();
         res.redirect('/')
-    }else {
+    } else {
         throw new Error('Cannot edit delete another users Post');
     }
 }))
