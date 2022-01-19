@@ -100,7 +100,7 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
 
         const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId)
-
+        console.log(post)
         res.render('delete-post', {post})
     }))
 
