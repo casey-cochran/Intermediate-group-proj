@@ -95,6 +95,15 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
         }
     }));
 
+    router.get('/:id(\\d+)/delete', authorize, asyncHandler(async(req,res) => {
+
+        const postId = parseInt(req.params.id, 10);
+        const post = await db.HobbyPost.findByPk(postId)
+
+        res.render('delete-post', {post})
+    }))
+
+
 
 
 router.post('/:id(\\d+)/delete', authorize, asyncHandler(async(req,res) => {
