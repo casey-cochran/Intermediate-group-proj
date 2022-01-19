@@ -7,7 +7,7 @@ html
   body
     if locals.authenticated
       span(class='welcome') Welcome #{user.firstName}!
-      form(class='logout' action='users/logout' method='post')
+      form(class='logout' action='/users/logout' method='post')
         button(class='logout-button' type='submit') Logout
     else
       span(class='login-and-register')
