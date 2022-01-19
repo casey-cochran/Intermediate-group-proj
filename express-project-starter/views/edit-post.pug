@@ -4,14 +4,14 @@ include utils.pug
 
 block content
   +validationErrorSummary(errors)
-  form(action=`/hobbyPost/edit/${post.id}` method='post')
+  form(action=`/hobbyPosts/edit/${post.id}` method='post')
         input(type='hidden' name='_csrf' value=csrfToken)
         div
             label Title
-            input(type='text' name='title' value=title size='40')
+            input(type='text' name='title' value=post.title size='40')
         div
             label Content
-            textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80')
+            textarea(type='text' name='content' required rows='40' cols='80') #{post.content}
         div
             button(type='submit') Update Post
             a(href=`/hobbyPosts/${post.id}`) Cancel
