@@ -60,7 +60,7 @@ router.post('/sign-up',
 
 router.post('/logout', (req, res) => {
   userLogout(req, res);
-  res.redirect('/');
+  req.session.save(() => res.redirect('/'))
 });
 
 module.exports = router;
