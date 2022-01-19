@@ -12,4 +12,4 @@ block content
         tr
           td= `${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
           td= hobbyPost.title
-          td= hobbyPost.sharedOn
+          td= hobbyPost.createdAt.toLocaleDateString(undefined, options)

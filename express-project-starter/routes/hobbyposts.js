@@ -57,7 +57,7 @@ router.get('/edit/:id(\\d+)', csrfProtection,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId);
-        res.render('new-post', {
+        res.render('edit-post', {
             title: 'Edit Post',
             post,
             csrfToken: req.csrfToken(),
@@ -84,7 +84,7 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
             res.redirect(`/hobbyPost/${postId}`);
         } else {
             const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('new-post', {
+            res.render('edit-post', {
                 title: 'Edit Post',
                 post: { ...post, id: postId },
                 errors,
