@@ -1,0 +1,7 @@
+extends layout.pug
+
+
+block content
+    form(action=`/${hobbyPost.id}/delete` method='post')
+    button(type='submit') Delete Post
+    a(href='/hobbyPosts') Cancel
