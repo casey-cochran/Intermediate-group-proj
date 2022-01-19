@@ -7,7 +7,7 @@ const { userLogin } = require('../auth.js');
 const { asyncHandler, csrfProtection, loginValidators } = require("./utils");
 
 
-router.get('/', function (req, res, next) {
+router.get('/', csrfProtection, function (req, res, next) {
     res.render('login', {
         title: 'Login',
         csrfToken: req.csrfToken(),
