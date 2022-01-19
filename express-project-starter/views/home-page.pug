@@ -6,10 +6,10 @@ block content
       tr
         th(scope='col') User
         th(scope='col') Title
-        th(scope='col') Content
+        th(scope='col') Shared On
     tbody
       each hobbyPost in hobbyPosts
         tr
           td= `${hobbyPost.user.firstName} ${hobbyPost.user.lastName}`
           td= hobbyPost.title
-          td= hobbyPost.content
+          td= hobbyPost.sharedOn
