@@ -5,6 +5,8 @@ html
         title="Intermediate"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
+
+    a(class='home' href='/') Home
     if locals.authenticated
       span(class='welcome') Welcome #{user.firstName}!
       form(class='logout' action='/users/logout' method='post')

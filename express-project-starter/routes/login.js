@@ -32,7 +32,8 @@ router.post('/', csrfProtection, loginValidators,
                 const passwordsMatch = await bcrypt.compare(password, user.hashedPass.toString());
                 if (passwordsMatch) {    
                     userLogin(req, res, user);
-                    return res.redirect('/');
+                    // return res.redirect('/');
+                    return req.session.save(() => res.redirect('/'))
                 }
             }
             errors.push('Login failed with given credentials.');
