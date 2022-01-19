@@ -1,8 +1,7 @@
 extends layout.pug
 
-
 block content
-    form(action=`/${post.id}/delete` method='post')
+    form(action=`/hobbyPosts/${post.id}/delete` method='post')
         div
             p= `${post.title}`
         div
