@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+  table(class='hobby-list')
+    thead(class='hobby-list-head')
+      tr
+        th(scope='col') User
+        th(scope='col') Title
+        th(scope='col') Content
+    tbody
+      each hobbyPost in hobbyPosts
+        tr
+          td= `${hobbyPost.user.firstName} ${hobbyPost.user.lastName}`
+          td= hobbyPost.title
+          td= hobbyPost.content
