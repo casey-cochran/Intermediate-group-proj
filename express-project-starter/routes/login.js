@@ -57,11 +57,4 @@ router.get('/demo-login', asyncHandler(async (req, res) => {
     return req.session.save(() => res.redirect('/'))
 }));
 
-// router.post('/demo-login', (req, res) => {
-//         const user = db.User.findOne({ where: { email: 'demo@demo.com' } });
-
-//     userLogin(req, res, user);
-//     return req.session.save(() => res.redirect('/'))
-// })
-
 module.exports = router;
