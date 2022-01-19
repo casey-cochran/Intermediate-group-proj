@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/new',authorize, csrfProtection, (req,res) => {
 
     res.render('new-post', {csrfToken: req.csrfToken()});
-})
+});
 
 const postValidators = [
     check('title')
