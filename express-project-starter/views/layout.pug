@@ -8,6 +8,7 @@ html
 
     a(class='home' href='/') Home
     if locals.authenticated
+      if 
       span(class='welcome') Welcome #{user.firstName}!
       form(class='logout' action='/users/logout' method='post')
         button(class='logout-button' type='submit') Logout
