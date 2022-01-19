@@ -4,13 +4,13 @@ include utils.pug
 
 block content
   +validationErrorSummary(errors)
-  form(action='/user/sign-up' method='post')
+  form(action='/users/sign-up' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)
     +field('First Name', 'firstName', user.firstName)
     +field('Last Name', 'lastName', user.lastName)
     +field('Email Address', 'email', user.email)
     +field('Password', 'password', user.password, 'password')
     +field('Confirm Password', 'confirmPassword', '', 'password')
-    div(class='submit-and-cancel')
-      button(type='submit' class='submit-button') Register
-      a(href='/' class='cancel-button') Cancel
+    div(class='register-buttons')
+      button(type='submit' class='register-submit') Register
+      a(href='/' class='register-cancel') Cancel
