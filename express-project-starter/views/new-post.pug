@@ -1,0 +1,13 @@
+extends layout.pug
+
+include utils.pug
+
+
+block content
+    +validationErrorSummary(errors)
+    form(action='/new' method='post')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        +field('Title', 'title', title)
+        label Content
+        textarea(name='content' value=content)
+        button(type='submit') Post
