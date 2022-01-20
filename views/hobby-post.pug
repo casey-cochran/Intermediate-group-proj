@@ -14,6 +14,7 @@ block content
                     a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
                     a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
 
+
     form(class="create-comment-form")
     .comment-form-group
       label(for='content') Comment
@@ -28,3 +29,5 @@ block content
             p(class='comments-content') #{comment.content}
 
   script(type="module" src="js/index.js")
+
+    button(type='submit' id='likes') click here to update likes
