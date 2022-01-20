@@ -6,7 +6,8 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
         if locals.authenticated
-          span(class='welcome') Welcome #{user.firstName}!
+          div(class='container login-head')
+            span(class='welcome') Welcome #{user.firstName}!
             form(class='logout' action='/users/logout' method='post')
               button(class='logout-button' type='submit') Logout
         else
