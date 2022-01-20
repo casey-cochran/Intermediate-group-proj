@@ -100,7 +100,7 @@ router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
 
     const postId = parseInt(req.params.id, 10);
     const post = await db.HobbyPost.findByPk(postId)
-    console.log(post)
+   // console.log(post)
     res.render('delete-post', { post })
 }))
 
