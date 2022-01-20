@@ -48,15 +48,27 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-    const { userId } = req.session.auth;
-    const hobbyPostId = parseInt(req.params.id, 10)
-    const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-    const shakasCount = await db.Shaka.count({ where: {hobbyPostId} })
-    const userShaka = await db.Shaka.findOne({ where: { userId, hobbyPostId } })
-    // const commentInPost = await db.Comment.findAll()
-    // console.log(hobbyPost)
-    const options = { month: 'short', day: 'numeric' }
-    res.render('hobby-post', { hobbyPost, options, shakasCount, userShaka })
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
+        const hobbyPostId = parseInt(req.params.id, 10)
+        const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+        const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
+        console.log(shakasCount)
+        const userShaka = await db.Shaka.findOne({ where: { userId, hobbyPostId } })
+        // const commentInPost = await db.Comment.findAll()
+        // console.log(hobbyPost)
+        const options = { month: 'short', day: 'numeric' }
+        res.render('hobby-post', { hobbyPost, options, shakasCount, userShaka })
+    } else {
+        const hobbyPostId = parseInt(req.params.id, 10)
+        const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+        const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
+        // const commentInPost = await db.Comment.findAll()
+        // console.log(hobbyPost)
+        const options = { month: 'short', day: 'numeric' }
+        res.render('hobby-post', { hobbyPost, options, shakasCount })
+    }
+    
 }));
 
 
@@ -72,14 +84,16 @@ router.post('/:id(\\d+)/likes', authorize, asyncHandler(async (req, res) => {
             },
         });
 
-        const shakasCount = await db.Shaka.count({ where: {hobbyPostId} })
-        const userShaka = await db.Shaka.findOne({where: {userId, hobbyPostId}})
-        console.log(shakasCount)
+        // const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
+        const userShaka = await db.Shaka.findOne({ where: { userId, hobbyPostId } })
+        // console.log(shakasCount)
         if (like) {
             await like.destroy();
+            const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
             res.json({ status: 'unliked', count: shakasCount })
         } else {
             await db.Shaka.create({ userId, hobbyPostId })
+            const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
             res.json({ status: 'liked', count: shakasCount })
         }
     }

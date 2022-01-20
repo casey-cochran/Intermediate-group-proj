@@ -1,5 +1,4 @@
 // document.addEventListener("DOMContentloaded", (event)=>{
-
     const likesButton = document.querySelector('.likes');
 
     // let count = 0
@@ -13,6 +12,7 @@
         })
 
         const likes = await res.json()
+        console.log(likes)
         // console.log('we made it!')
         // const div = document.createElement('div')
         // const p = document.createElement('p')
