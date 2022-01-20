@@ -4,6 +4,11 @@
     align-items: center;
 }
 
+
+.postpage-title{
+    font-size: 40px;
+}
+
 .post-details{
     display: flex;
     flex-direction: row;
@@ -12,16 +17,13 @@
 
 }
 
-.postpage-title{
-    font-size: 40px;
-}
-
 .postpage-fullname{
     color: goldenrod;
+    margin-right: 10px;
 }
 
 .postpage-date{
-
+    margin-left: 10px;
 }
 
 .postpage-content{
