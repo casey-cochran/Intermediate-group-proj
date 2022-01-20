@@ -67,7 +67,7 @@ router.get('/:id(\\d+)/edit', csrfProtection,
         });
     }));
 
-router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
+router.post('/:id(\\d+)/edit', csrfProtection, postValidators,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         const postToUpdate = await db.HobbyPost.findByPk(postId);
