@@ -25,3 +25,21 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.container{
+  border-bottom: 2px solid black;
+  background-color: skyblue;
+  padding: 50px 50px;
+
+}
+
+.space{
+  padding: 0px 15px;
+}
