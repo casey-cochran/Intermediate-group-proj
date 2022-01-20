@@ -8,7 +8,8 @@ block content
             div(class='postpage-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
         div(class='postpage-content') #{hobbyPost.content}
 
-        if locals.user.id === hobbyPost.userId
-            div(class='edit-delete-container')
-                a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
-                a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
+        if locals.user
+            if locals.user.id === hobbyPost.userId
+                div(class='edit-delete-container')
+                    a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
+                    a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
