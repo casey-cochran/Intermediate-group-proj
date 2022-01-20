@@ -5,15 +5,18 @@ html
         title="Intermediate"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-
-    a(class='home' href='/') Home
-    if locals.authenticated
-      span(class='welcome') Welcome #{user.firstName}!
-      form(class='logout' action='/users/logout' method='post')
-        button(class='logout-button' type='submit') Logout
-    else
-      span(class='login-and-register')
-        a(class='login' href='/login') Login
-        a(class='register' href='/users/sign-up') Register
-        a(class='demo-user' href='/login/demo-login') Login As Demo User
-    block content
+        if locals.authenticated
+          span(class='welcome') Welcome #{user.firstName}!
+            form(class='logout' action='/users/logout' method='post')
+              button(class='logout-button' type='submit') Logout
+        else
+        div(class='container')
+          div(class='navbar')
+              div
+                a(class='home' href='/') Home
+              div
+                a(class='login space' href='/login') Login
+                a(class='register space' href='/users/sign-up') Register
+                a(class='demo-user space' href='/login/demo-login') Login As Demo User
+        div
+        block content
