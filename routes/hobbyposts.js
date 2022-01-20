@@ -54,6 +54,25 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     res.render('hobby-post', { hobbyPost, options })
 }));
 
+router.post('/:id(\\d+)', authorize, asyncHandler(async(req,res) => {
+    const hobbyPostId = parseInt(req.params.id, 10);
+    if(req.session.auth){
+     const {userId} = req.session.auth;
+        const like = await db.Shaka.findOne({
+            where: {
+                userId,
+                hobbyPostId
+            },
+        });
+
+        if(like){
+            await like.destroy()
+        }else{
+            await like.create({userId, hobbyPostId})
+        }
+    }
+}))
+
 
 router.get('/:id(\\d+)/edit', csrfProtection,
     asyncHandler(async (req, res) => {
