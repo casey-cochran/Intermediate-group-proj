@@ -55,7 +55,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 
-router.get('/edit/:id(\\d+)', csrfProtection,
+router.get('/:id(\\d+)/edit', csrfProtection,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId);
@@ -96,29 +96,22 @@ router.post('/edit/:id(\\d+)', csrfProtection, postValidators,
         }
     }));
 
-    router.get('/:id(\\d+)/delete', authorize, asyncHandler(async(req,res) => {
+router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
 
-        const postId = parseInt(req.params.id, 10);
-        const post = await db.HobbyPost.findByPk(postId)
-        console.log(post)
-        res.render('delete-post', {post})
-    }))
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.HobbyPost.findByPk(postId)
+    console.log(post)
+    res.render('delete-post', { post })
+}))
 
 
 
 
 router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
-    const user = parseInt(req.params.id, 10);
-    const { userId } = req.session.auth;
-
-    if (user === userId) {
-        const postId = parseInt(req.params.id, 10);
-        const post = await db.HobbyPost.findByPk(postId);
-        await post.destroy();
-        res.redirect('/')
-    } else {
-        throw new Error('Cannot edit delete another users Post');
-    }
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.HobbyPost.findByPk(postId);
+    await post.destroy();
+    res.redirect('/')
 }))
 
 
