@@ -40,7 +40,7 @@ router.post('/sign-up',
       lastName
     });
 
-    
+
 
     const validatorErrors = validationResult(req);
 
@@ -70,9 +70,15 @@ router.post('/logout', (req, res) => {
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10)
+  // const { userId } = req.session.auth
   const hobbyPosts = await db.HobbyPost.findAll({
-    include: { model: db.User }
+    // where: { userId },
+    include: {
+      model: db.User,
+      where: {userId}
+    }
   })
+  console.log(`THIS IS ${hobbyPosts}`)
   const options = { month: 'short', day: 'numeric' }
   res.render('user-posts-page', { hobbyPosts, options })
 }))

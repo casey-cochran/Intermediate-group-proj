@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-    div= `${hobbyPosts.user.firstName} ${hobbyPosts.user.lastName}`
+    div= `${hobbyPosts.User.firstName} ${hobbyPosts.User.lastName}`
 
     each post in user.HobbyPosts
         div= post.createdAt.toLocaleDateString(undefined, options)
