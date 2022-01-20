@@ -29,7 +29,7 @@ h1 {
 .navbar{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 
 }
 
@@ -38,6 +38,14 @@ h1 {
   background-color: skyblue;
   padding: 50px 50px;
 
+}
+
+.login-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .space{
