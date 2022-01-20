@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+    
     each post in hobbyPosts
         div= `${post.User.firstName} ${post.User.lastName}`
 
