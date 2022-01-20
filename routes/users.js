@@ -71,14 +71,13 @@ router.post('/logout', (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10)
   // const { userId } = req.session.auth
-  const hobbyPosts = await db.HobbyPost.findAll({
-    // where: { userId },
-    include: {
-      model: db.User,
-      where: {userId}
-    }
-  })
-  console.log(`THIS IS ${hobbyPosts}`)
+  //console.log(`---------------------------${userId}`)
+  const hobbyPosts = await db.HobbyPost.findAll({include: db.User})
+  // for(obj of hobbyPosts){
+  //   console.log(`-----------------${obj.User.firstName}--- ${obj.content}`)
+  //   console.log(`-------${hobbyPosts.HobbyPost}`)
+  // }
+ // console.log(`THIS IS---------------- ${hobbyPosts}`)
   const options = { month: 'short', day: 'numeric' }
   res.render('user-posts-page', { hobbyPosts, options })
 }))

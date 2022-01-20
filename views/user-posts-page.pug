@@ -1,12 +1,12 @@
 extends layout.pug
 
 block content
-    div= `${hobbyPosts.User.firstName} ${hobbyPosts.User.lastName}`
+    each post in hobbyPosts
+        div= `${post.User.firstName} ${post.User.lastName}`
 
-    each post in user.HobbyPosts
         div= post.createdAt.toLocaleDateString(undefined, options)
         div= post.title
         div= post.content
 
         if locals.user.id === user.id
-            a(href= `/hobbyposts/${hobbypost.id}/edit`)
+            a(href= `/hobbyposts/${post.id}/edit`)
