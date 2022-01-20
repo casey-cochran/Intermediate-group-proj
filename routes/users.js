@@ -40,6 +40,8 @@ router.post('/sign-up',
       lastName
     });
 
+    
+
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
@@ -65,5 +67,12 @@ router.post('/logout', (req, res) => {
   userLogout(req, res);
   req.session.save(() => res.redirect('/'))
 });
+
+router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+  const userId = parseInt(req.params.id, 10)
+  const user = await db.User.findByPk(userId, { include: 'HobbyPost' });
+  const options = { month: 'short', day: 'numeric' }
+  res.render('user-posts-page', { user, options })
+}))
 
 module.exports = router;

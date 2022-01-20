@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+    div= `${user.firstName} ${user.lastName}`
+
+    each post in user.HobbyPosts
+        div= post.createdAt.toLocaleDateString(undefined, options)
+        div= post.title
+        div= post.content
+
+        if locals.user.id === user.id
+            a(href= /hobbyposts/${hobbypost.id}/edit`)
