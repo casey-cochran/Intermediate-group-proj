@@ -7,6 +7,8 @@ block content
         div= post.createdAt.toLocaleDateString(undefined, options)
         div= post.title
         div= post.content
-
-        if locals.user.id === user.id
-            a(href= `/hobbyposts/${post.id}/edit`)
+        if locals.user
+            if locals.user.id === post.userId
+                div(class='edit-delete-container')
+                    a(href= `/hobbyposts/${post.id}/edit`) Edit
+                    a(href= `/hobbyposts/${post.id}/delete`) Delete
