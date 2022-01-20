@@ -51,8 +51,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
     const options = { month: 'short', day: 'numeric' }
-    res.render('hobby-post', { hobbyPost, include: { model: db.User }, options })
-}))
+    res.render('hobby-post', { hobbyPost, options })
+}));
 
 
 router.get('/:id(\\d+)/edit', csrfProtection,
