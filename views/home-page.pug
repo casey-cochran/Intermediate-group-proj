@@ -3,6 +3,6 @@ extends layout.pug
 block content
 
   each hobbyPost in hobbyPosts
-    div(class='home-page-post-author') #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
+    a(class='home-page-post-author' href=`/users/${hobbyPost.User.id}`) #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
     a(class='home-page-title-link' href=`/hobbyposts/${hobbyPost.id}`) #{hobbyPost.title}
     div(class='home-page-share-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
