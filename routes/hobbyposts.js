@@ -50,19 +50,20 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-    const commentInPost = await db.Comment.findAll()
+    const shakasCount = await db.Shaka.count({ where: hobbyPostId })
+    // const commentInPost = await db.Comment.findAll()
     // console.log(hobbyPost)
     const options = { month: 'short', day: 'numeric' }
-    res.render('hobby-post', { hobbyPost, options })
+    res.render('hobby-post', { hobbyPost, options, shakasCount })
 }));
 
 
 
-router.post('/:id(\\d+)/likes', authorize, asyncHandler(async(req,res) => {
+router.post('/:id(\\d+)/likes', authorize, asyncHandler(async (req, res) => {
     console.log('we made it to the backend ;)')
     const hobbyPostId = parseInt(req.params.id, 10);
-    if(req.session.auth){
-     const {userId} = req.session.auth;
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
         const like = await db.Shaka.findOne({
             where: {
                 userId,
@@ -70,12 +71,12 @@ router.post('/:id(\\d+)/likes', authorize, asyncHandler(async(req,res) => {
             },
         });
 
-        if(like){
+        if (like) {
             await like.destroy();
-            res.json({status: 'unliked'})
-        }else{
-            await db.Shaka.create({userId, hobbyPostId})
-            res.json({status: 'liked'})
+            res.json({ status: 'unliked' })
+        } else {
+            await db.Shaka.create({ userId, hobbyPostId })
+            res.json({ status: 'liked' })
         }
     }
 }))
@@ -126,7 +127,7 @@ router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
 
     const postId = parseInt(req.params.id, 10);
     const post = await db.HobbyPost.findByPk(postId)
-   // console.log(post)
+    // console.log(post)
     res.render('delete-post', { post })
 }))
 
@@ -145,11 +146,11 @@ router.post(
     "/:id(\\d+)",
     commentValidators,
     asyncHandler(async (req, res) => {
-      const { content } = req.body;
-      const postId = parseInt(req.params.id, 10);
-      const comment = await db.Comment.create({ content, hobbyPostId: postId, userId: req.user.id});
-      res.json({ comment });
+        const { content } = req.body;
+        const postId = parseInt(req.params.id, 10);
+        const comment = await db.Comment.create({ content, hobbyPostId: postId, userId: req.user.id });
+        res.json({ comment });
     })
-  );
+);
 
 module.exports = router;
