@@ -7,4 +7,4 @@ block content
     div= hobbyPost.content
 
     if locals.user.id === hobbyPost.userId
-        a(href= /hobbyposts/${hobbypost.id}/edit`)
+        a(href= `/hobbyposts/edit/${hobbyPost.id}`) Edit
