@@ -1,0 +1,20 @@
+extends hobby-post.pug
+
+include utils.pug
+
+
+block content
+    +validationErrorSummary(errors)
+
+    form(action='/hobbyPosts/new' method='post')
+        input(type='hidden' name='_csrf' value=csrfToken)
+        div
+            label Title
+            input(type='text' name='title' value=title size='40')
+        div
+            label Content
+            textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80')
+        div
+            button(type='submit') Post
+            a(href='/') Cancel
+
