@@ -1,11 +1,14 @@
 extends layout.pug
 
 block content
-    div= `${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
-    div= hobbyPost.createdAt.toLocaleDateString(undefined, options)
-    div= hobbyPost.title
-    div= hobbyPost.content
+    div(class='postpage-container')
+        div(class='postpage-title') #{hobbyPost.title}
+        div(class='post-details')
+            div(class='postpage-fullname') #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
+            div(class='postpage-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
+        div(class='postpage-content') #{hobbyPost.content}
 
-    if locals.user.id === hobbyPost.userId
-        a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
-        a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
+        if locals.user.id === hobbyPost.userId
+            div(class='edit-delete-container')
+                a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
+                a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
