@@ -70,9 +70,11 @@ router.post('/logout', (req, res) => {
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10)
-  const user = await db.User.findByPk(userId, { include: 'HobbyPost' });
+  const hobbyPosts = await db.HobbyPost.findAll({
+    include: { model: db.User }
+  })
   const options = { month: 'short', day: 'numeric' }
-  res.render('user-posts-page', { user, options })
+  res.render('user-posts-page', { hobbyPosts, options })
 }))
 
 module.exports = router;
