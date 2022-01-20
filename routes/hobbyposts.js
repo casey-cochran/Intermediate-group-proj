@@ -51,12 +51,15 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
     const commentInPost = await db.Comment.findAll()
-    console.log(hobbyPost)
+    // console.log(hobbyPost)
     const options = { month: 'short', day: 'numeric' }
     res.render('hobby-post', { hobbyPost, options })
 }));
 
-router.post('/:id(\\d+)', authorize, asyncHandler(async(req,res) => {
+
+
+router.post('/:id(\\d+)/likes', authorize, asyncHandler(async(req,res) => {
+    console.log('we made it to the backend ;)')
     const hobbyPostId = parseInt(req.params.id, 10);
     if(req.session.auth){
      const {userId} = req.session.auth;
@@ -68,9 +71,11 @@ router.post('/:id(\\d+)', authorize, asyncHandler(async(req,res) => {
         });
 
         if(like){
-            await like.destroy()
+            await like.destroy();
+            res.json({status: 'unliked'})
         }else{
-            await like.create({userId, hobbyPostId})
+            await db.Shaka.create({userId, hobbyPostId})
+            res.json({status: 'liked'})
         }
     }
 }))
@@ -80,7 +85,7 @@ router.get('/:id(\\d+)/edit', csrfProtection,
     asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         const post = await db.HobbyPost.findByPk(postId);
-        console.log(post.content)
+        // console.log(post.content)
         res.render('edit-post', {
             title: 'Edit Post',
             post,
