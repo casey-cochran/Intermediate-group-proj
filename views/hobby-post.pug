@@ -5,3 +5,6 @@ block content
     div= hobbyPost.createdAt.toLocaleDateString(undefined, options)
     div= hobbyPost.title
     div= hobbyPost.content
+
+    if locals.user.id === hobbyPost.userId
+        a(href= /hobbyposts/${hobbypost.id}/edit`)

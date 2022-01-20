@@ -1,15 +1,8 @@
 extends layout.pug
 
 block content
-  table(class='hobby-list')
-    thead(class='hobby-list-head')
-      tr
-        th(scope='col') User
-        th(scope='col') Title
-        th(scope='col') Shared On
-    tbody
-      each hobbyPost in hobbyPosts
-        tr
-          td= `${hobbyPost.User.firstName} ${hobbyPost.User.lastName}`
-          td= hobbyPost.title
-          td= hobbyPost.createdAt.toLocaleDateString(undefined, options)
+
+  each hobbyPost in hobbyPosts
+    div(class='home-page-post-author') #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
+    a(class='home-page-title-link' href=`/hobbyposts/${hobbyPost.id}`) #{hobbyPost.title}
+    div(class='home-page-share-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
