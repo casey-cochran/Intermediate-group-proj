@@ -14,6 +14,7 @@ block content
                     a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
                     a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
 
+    button(type='submit' id='likes') click here to update likes
 
     form(class="create-comment-form")
     .comment-form-group
@@ -21,13 +22,11 @@ block content
       textarea#comment.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
     button(type='submit') Share comment
 
-  div(class="comments-container")
-    each comment in comments
-      div(class="comments-box")
-        div(class="user-header") #{comment.user.firstName} #{comment.user.lastName}
-        div(class="comments-body")
-            p(class='comments-content') #{comment.content}
+    div(class="comments-container")
+      each comment in hobbyPost.Comment.content
+        div(class="comments-box")
+          div(class="user-header") #{comment.user.firstName} #{comment.user.lastName}
+          div(class="comments-body")
+              p(class='comments-content') #{comment.content}
 
-  script(type="module" src="js/index.js")
-
-    button(type='submit' id='likes') click here to update likes
+    script(type="module" src="js/index.js")

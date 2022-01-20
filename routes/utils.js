@@ -61,9 +61,16 @@ const signUpValidators = [
     })
 ];
 
+const commentValidators = [
+  check('content')
+    .exists({checkFalsy: true})
+    .withMessage('Must provide a comment Address'),
+];
+
 module.exports = {
   csrfProtection,
   asyncHandler,
   signUpValidators,
-  loginValidators
+  loginValidators,
+  commentValidators
 };
