@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../db/models');
-const { csrfProtection, asyncHandler } = require('./utils');
+const { csrfProtection, asyncHandler, commentValidators } = require('./utils');
 const { authorize } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const { user } = require('pg/lib/defaults');
@@ -50,6 +50,8 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const hobbyPostId = parseInt(req.params.id, 10)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+    const commentInPost = await db.Comment.findAll()
+    console.log(hobbyPost)
     const options = { month: 'short', day: 'numeric' }
     res.render('hobby-post', { hobbyPost, options })
 }));
@@ -134,6 +136,15 @@ router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
 }))
 
 
-
+router.post(
+    "/:id(\\d+)",
+    commentValidators,
+    asyncHandler(async (req, res) => {
+      const { content } = req.body;
+      const postId = parseInt(req.params.id, 10);
+      const comment = await db.Comment.create({ content, hobbyPostId: postId, userId: req.user.id});
+      res.json({ comment });
+    })
+  );
 
 module.exports = router;

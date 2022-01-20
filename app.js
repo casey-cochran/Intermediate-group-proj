@@ -13,6 +13,7 @@ const {restoreUser} = require('./auth');
 const {sessionSecret} = require('./config');
 const hobbyPostRouter = require('./routes/hobbyposts')
 
+
 const app = express();
 
 // view engine setup
@@ -44,6 +45,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/hobbyPosts', hobbyPostRouter);
+
 
 
 // catch 404 and forward to error handler
