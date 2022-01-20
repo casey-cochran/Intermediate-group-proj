@@ -9,6 +9,8 @@ html
           div(class='container login-head')
             a(class='home' href='/') Home
             span(class='welcome') Welcome #{user.firstName}!
+            form(class='share-hobby' action='/hobbyPosts/new' method='get')
+              button(class='share-hobby-button' type='submit') Share Your Hobby
             form(class='logout' action='/users/logout' method='post')
               button(class='logout-button' type='submit') Logout
         else
