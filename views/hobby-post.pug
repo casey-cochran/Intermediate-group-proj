@@ -13,13 +13,13 @@ block content
                 div(class='edit-delete-container')
                     a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
                     a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
-    if locals.user 
+    if locals.user
         if userShaka
             button(class='likes' id=`${hobbyPost.id}`) Shaka'd #{shakasCount}
         else
             button(class='likes' id=`${hobbyPost.id}`) Shaka #{shakasCount}
-    else 
-        div(class='likes' id=`${hobbyPost.id}`) Shakas #{shakasCount}
+    else
+        div(class='auth' id=`${auth}`) Shakas #{shakasCount}
 
     form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
       .form-group
@@ -28,12 +28,12 @@ block content
       button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
 
     div(class="comments-container")
-      each comment in comments
         div(class="comments-box")
-          div(class="user-header") #{comment.User.firstName} #{comment.User.lastName}
-          div(class="comments-body")
-              p(class='comments-content') #{comment.content}
+            each comment in comments
+                div(class="user-header" id=`${comment.User.firstName} ${comment.User.lastName}`) #{comment.User.firstName} #{comment.User.lastName}
+                div(class="comments-body")
+                    p(class='comments-content') #{comment.content}
+
 
     script(type="module" src="/javascripts/index.js")
     script(type="module" src="/javascripts/likes.js")
-
