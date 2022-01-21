@@ -21,19 +21,19 @@ block content
     else 
         div(class='likes' id=`${hobbyPost.id}`) Shakas #{shakasCount}
 
-    //- form(class="create-comment-form")
-    //- .comment-form-group
-    //-   label(for='content') Comment
-    //-   textarea#comment.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
-    //- button(type='submit') Share comment
+    form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
+      .form-group
+        label(for='content') Comment
+        textarea#content.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
+      button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
 
-    //- div(class="comments-container")
-    //-   each comment in hobbyPost.Comment.content
-    //-     div(class="comments-box")
-    //-       div(class="user-header") #{comment.user.firstName} #{comment.user.lastName}
-    //-       div(class="comments-body")
-    //-           p(class='comments-content') #{comment.content}
+    div(class="comments-container")
+      each comment in comments
+        div(class="comments-box")
+          div(class="user-header") #{comment.User.firstName} #{comment.User.lastName}
+          div(class="comments-body")
+              p(class='comments-content') #{comment.content}
 
-    //- script(type="module" src="js/index.js")
+    script(type="module" src="/javascripts/index.js")
     script(type="module" src="/javascripts/likes.js")
 
