@@ -9,8 +9,8 @@ block content
     div(class='log-bod')
       h1(class='log-title') Login 
       input(class='input' type='hidden' name='_csrf' value=csrfToken)
-      +field('Email Address', 'email', email)
-      +field('Password', 'password', null, 'password')
+      input(class='input', type='email', name='email', placeholder='Email')
+      input(class='input', type='password', name='password', placeholder='Password')
       div(class='login-buttons btndiv')
         button(type='submit' class='login-submit logbtn btn') LOGIN
         a(href='/' class='login-cancel rightbtn btn') CANCEL
