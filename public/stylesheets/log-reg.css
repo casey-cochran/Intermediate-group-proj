@@ -21,6 +21,13 @@ form{
     margin-right: 50px;
     font-family: 'Times New Roman', Times, serif;
 }
+input:focus::placeholder {
+  color: transparent;
+}
+
+.input:focus::placeholder {
+  color: transparent;
+}
 
 
 .log-title{
