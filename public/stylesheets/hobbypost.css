@@ -8,14 +8,16 @@
 
 .postpage-title{
     font-size: 40px;
+    
 }
 
 .post-details{
+    /* background-color: red; */
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 25px;
     margin-bottom: 25px;
-
+    /* justify-content: space-around; */
 }
 
 .postpage-fullname{

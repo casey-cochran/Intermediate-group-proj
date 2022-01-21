@@ -5,10 +5,11 @@ html
         title="Intermediate"
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='/stylesheets/hobbypost.css')
+        link(rel='stylesheet' href='/stylesheets/homepage.css')
   body
         if locals.authenticated
           div(class='container login-head')
-            a(class='home' href='/') Home
+            a(class='home' href='/') InterMedium
             span(class='welcome') Welcome #{user.firstName}!
             form(class='share-hobby' action='/hobbyPosts/new' method='get')
               button(class='share-hobby-button' type='submit') Share Your Hobby
