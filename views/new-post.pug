@@ -5,16 +5,15 @@ include utils.pug
 
 block content
     +validationErrorSummary(errors)
-
-    form(action='/hobbyPosts/new' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        div
-            label Title
-            input(type='text' name='title' value=title size='40')
-        div
-            label Content
-            textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80')
-        div
-            button(type='submit') Post
-            a(href='/') Cancel
-
+    div
+        form(action='/hobbyPosts/new' method='post' class='new-post-form')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            div
+                label(class='new-post-form-label')
+                input(type='text' name='title' value=title size='40' placeholder='title' class='new-post-form-input' id='input-styling')
+            div
+                label(class='new-post-form-label')
+                textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80' class='new-post-form-textarea')
+            div(id='post-cancel')
+                button(type='submit') Post
+                a(href='/') Cancel
