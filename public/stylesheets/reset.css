@@ -7,8 +7,32 @@ body {
   box-sizing: border-box;
 }
 
+.welcome{
+  color: rgb(68, 189, 236)
+}
+
+.left-side{
+  display: flex;
+  justify-self: flex-start;
+  gap: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.share-hobby-button{
+  border-radius: 10px ;
+}
+
 .share-hobby-button:hover{
   cursor: pointer;
+}
+
+.logout-button{
+  border-radius: 10px ;
 }
 
 .logout-button:hover {
@@ -63,9 +87,17 @@ h1 {
 }
 
 .space{
-  padding: 0px 15px;
+  padding: 0px 10px;
+  text-decoration: underline;
 }
 
 body{
   /* background-color: rgb(250, 250, 250, 1); */
+}
+
+.login, .register, .demo-user, .home-unauthorize {
+  text-decoration: none;
+}
+.login:hover, .register:hover, .demo-user:hover, .home:hover {
+  color: rgba(85, 85, 85, 1);
 }

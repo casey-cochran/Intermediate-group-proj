@@ -9,17 +9,19 @@ html
   body
         if locals.authenticated
           div(class='container login-head')
-            a(class='home' href='/') InterMedium
-            span(class='welcome') Welcome #{user.firstName}!
-            form(class='share-hobby' action='/hobbyPosts/new' method='get')
-              button(class='share-hobby-button' type='submit') Share Your Hobby
-            form(class='logout' action='/users/logout' method='post')
-              button(class='logout-button' type='submit') Logout
+            div(class='left-side')
+              a(class='home' href='/') InterMedium
+              span(class='welcome') Welcome #{user.firstName}!
+            div(class='buttons-container')
+              form(class='share-hobby' action='/hobbyPosts/new' method='get')
+                button(class='share-hobby-button' type='submit') Share Your Hobby
+              form(class='logout' action='/users/logout' method='post')
+                button(class='logout-button' type='submit') Logout
         else
           div(class='container')
             div(class='navbar')
                 div
-                  a(class='home' href='/') Home
+                  a(class='home' href='/') InterMedium
                 div
                   a(class='login space' href='/login') Login
                   a(class='register space' href='/users/sign-up') Register
