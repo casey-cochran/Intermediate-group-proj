@@ -5,7 +5,7 @@ include utils.pug
 
 block content
     +validationErrorSummary(errors)
-    div
+    div(id='test')
         form(action='/hobbyPosts/new' method='post' class='new-post-form')
             input(type='hidden' name='_csrf' value=csrfToken)
             div
@@ -15,5 +15,5 @@ block content
                 label(class='new-post-form-label')
                 textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80' class='new-post-form-textarea')
             div(id='post-cancel')
-                button(type='submit') Post
-                a(href='/') Cancel
+                button(type='submit' class='btn') Post
+                a(href='/' class='btn') Cancel
