@@ -1,0 +1,76 @@
+.name-and-date-group {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    margin-top: 28px;
+}
+
+.post-group {
+    border-bottom: solid 1px lightgray;
+    margin-left: 20px;
+}
+
+.home-page-post-author {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(41, 41, 41, 1);
+    font-weight: 400;
+}
+
+.home-page-post-author:hover {
+    color: rgba(85, 85, 85, 1);
+}
+
+.home-page-title-link {
+    text-decoration: none;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgba(41, 41, 41, 1);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.home-page-title-link:hover {
+    color: rgba(85, 85, 85, 1);
+}
+
+    /* margin-left: 20px; */
+
+
+.home-page-share-date {
+    color: rgba(117, 117, 117, 1);
+    font-size: 14px;
+}
+
+.title-link-container {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.home-header-group {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    gap: 10px;
+    padding: 20px 0px 10px;
+}
+
+.home-header-group{
+    display: flex;
+    align-items: center;
+}
+
+.home-header-container {
+    border-bottom: solid 1px lightgray ;
+    margin-left: 20px;
+    padding: 20px 0px 10px;
+}
+
+.home-header {
+    font-size: 22px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: rgba(41, 41, 41, 1);
+}

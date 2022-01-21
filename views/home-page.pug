@@ -2,7 +2,13 @@ extends layout.pug
 
 block content
 
+  div(class='home-header-container')
+    div(class='home-header') Here are the newest Hobby Posts!
+
   each hobbyPost in hobbyPosts
-    a(class='home-page-post-author' href=`/users/${hobbyPost.User.id}`) #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
-    a(class='home-page-title-link' href=`/hobbyposts/${hobbyPost.id}`) #{hobbyPost.title}
-    div(class='home-page-share-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
+    div(class='post-group')
+      div(class='name-and-date-group')
+        a(class='home-page-post-author' href=`/users/${hobbyPost.User.id}`) #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
+        div(id="share-date" class='home-page-share-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
+      div(class='title-link-container')
+        a(class='home-page-title-link' href=`/hobbyposts/${hobbyPost.id}`) #{hobbyPost.title}
