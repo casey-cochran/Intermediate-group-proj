@@ -48,27 +48,28 @@ router.post('/new', authorize, postValidators, csrfProtection, asyncHandler(asyn
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+    const hobbyPostId = parseInt(req.params.id, 10)
+
+    const comments = await db.Comment.findAll({
+        where: {
+            hobbyPostId,
+        },
+        include: db.User
+    })
+
+    console.log(comments)
+    const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
+    const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
+    const options = { month: 'short', day: 'numeric' }
+
     if (req.session.auth) {
         const { userId } = req.session.auth;
-        const hobbyPostId = parseInt(req.params.id, 10)
-        const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-        const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
-        console.log(shakasCount)
         const userShaka = await db.Shaka.findOne({ where: { userId, hobbyPostId } })
-        // const commentInPost = await db.Comment.findAll()
-        // console.log(hobbyPost)
-        const options = { month: 'short', day: 'numeric' }
-        res.render('hobby-post', { hobbyPost, options, shakasCount, userShaka })
+        res.render('hobby-post', { hobbyPost, options, shakasCount, userShaka, comments })
     } else {
-        const hobbyPostId = parseInt(req.params.id, 10)
-        const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
-        const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
-        // const commentInPost = await db.Comment.findAll()
-        // console.log(hobbyPost)
-        const options = { month: 'short', day: 'numeric' }
-        res.render('hobby-post', { hobbyPost, options, shakasCount })
+        res.render('hobby-post', { hobbyPost, options, shakasCount, comments })
     }
-    
+
 }));
 
 
@@ -96,6 +97,24 @@ router.post('/:id(\\d+)/likes', authorize, asyncHandler(async (req, res) => {
             const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
             res.json({ status: 'liked', count: shakasCount })
         }
+    }
+}))
+
+router.post('/:id(\\d+)/comments', authorize, asyncHandler(async (req, res) => {
+    const hobbyPostId = parseInt(req.params.id, 10);
+    const { content } = req.body;
+
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
+        const comment = await db.Comment.create({
+            content,
+            hobbyPostId,
+            userId,
+        });
+
+        res.json({
+            comment
+        })
     }
 }))
 

@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     User.hasMany(models.HobbyPost, { foreignKey: 'userId' })
     User.hasMany(models.Shaka, {foreignKey: 'userId'})
+    User.hasMany(models.Comment, { foreignKey: 'userId' })
     const columnMappingOne = { // User -> User, through Follow as follower
       through: 'Follower',
       otherKey: 'followingId',
