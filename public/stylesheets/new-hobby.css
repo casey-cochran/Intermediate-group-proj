@@ -37,6 +37,7 @@ input{
     padding: 105px 5px;
     width: 100%;
     color: black;
+
 }
 
 .new-post-form > div {
@@ -44,7 +45,10 @@ input{
     align-items: flex-start;
     justify-content: center;
     margin-bottom: 25px;
+    margin-right: 55px;
 }
+
+
 
 .new-post-form-input,
 .new-post-form-textarea {
@@ -84,4 +88,36 @@ input{
 }
 #post-cancel > a {
     margin-left: 20px;
+}
+input::placeholder {
+    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.new-post-form-textarea::placeholder {
+    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+
+
+.btn {
+
+    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
+    /* text-shadow: 0 1px #fff; */
+    color: white;
+    font-weight: 1px;
+    border: black solid;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 50px;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    transition-duration: 00.2s;
+}
+
+.btn:hover {
+    border: solid;
+    cursor: pointer;
+    background-color: rgba(118, 179, 178, 0.701);
+    text-align: center;
 }
