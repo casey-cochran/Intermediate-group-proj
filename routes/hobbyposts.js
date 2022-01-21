@@ -179,7 +179,13 @@ router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
 
 router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
+    // const {userId} = req.session.auth
     const post = await db.HobbyPost.findByPk(postId);
+    // const post = await db.HobbyPost.findOne({
+    //     where: { userId },
+    //     include: db.Comment,
+    //     include: db.Shaka
+    // });
     await post.destroy();
     res.redirect('/')
 }))
