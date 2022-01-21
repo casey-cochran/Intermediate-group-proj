@@ -1,17 +1,31 @@
+form{
+    display:flex;
+    justify-content: center;
+    padding: 15px;
+    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
+    /* background-color: rgba(118, 179, 178, 0.701); */
+    /* border: black solid 1px; */
+}
+
 .input {
     display: flex;
-    flex-direction: row;
     margin-top: 25px;
     margin-bottom: 25px;
-    
+    border-radius: 5px;
+    border: solid gray 1px;
+    justify-content: space-between;
+    padding: 5px 70px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.each-field{
-
-}
 
 .log-title{
     align-self: center;
+    margin-bottom: 50px;
 }
 
 .log-bod{
@@ -21,7 +35,7 @@
     /* justify-content: center; */
     margin-top: 100px;
     margin-bottom: 25px;
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 
 .btndiv{
@@ -32,10 +46,10 @@
 
 .btn {
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
     /* text-shadow: 0 1px #fff; */
     color: white;
-    font-weight: normal;
+    font-weight: 1px;
     border: black solid;
     font-size: 15px;
     text-decoration: none;
@@ -43,23 +57,27 @@
     padding: 5px 10px;
     text-align: center;
     background-color: rgb(0, 0, 0);
-    transition-duration: 0.3s;
+    transition-duration: 00.2s;
 }
 
 .btn:hover {
-    border: solid black 1.5px;
+    border: solid;
     cursor: pointer;
     background-color: rgba(118, 179, 178, 0.701);
     text-align: center;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 50px;
 }
 
 .leftbtn{
     margin-right: 100px;
 }
 
+.logbtn{
+    margin-right: 100px;
+    padding: 5px 18.5px;
+}
+
 .rightbtn{
     margin-left: 100px;
+    padding: 5px 14px;
 }
+
