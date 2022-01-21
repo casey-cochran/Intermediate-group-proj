@@ -4,6 +4,7 @@ const { csrfProtection, asyncHandler, commentValidators } = require('./utils');
 const { authorize } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const { user } = require('pg/lib/defaults');
+const { sequelize } = require('../db/models');
 
 const router = express.Router();
 
@@ -53,11 +54,13 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const comments = await db.Comment.findAll({
         where: {
             hobbyPostId,
+
         },
-        include: db.User
+        order: [["createdAt", "DESC"]],
+        include: db.User,
     })
 
-    console.log(comments)
+    //console.log(comments)
     const hobbyPost = await db.HobbyPost.findByPk(hobbyPostId, { include: 'User' });
     const shakasCount = await db.Shaka.count({ where: { hobbyPostId } })
     const options = { month: 'short', day: 'numeric' }
@@ -67,7 +70,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
         const userShaka = await db.Shaka.findOne({ where: { userId, hobbyPostId } })
         res.render('hobby-post', { hobbyPost, options, shakasCount, userShaka, comments })
     } else {
-        res.render('hobby-post', { hobbyPost, options, shakasCount, comments })
+        let auth = null
+        res.render('hobby-post', { hobbyPost, options, shakasCount, comments, auth })
     }
 
 }));
@@ -106,14 +110,16 @@ router.post('/:id(\\d+)/comments', authorize, asyncHandler(async (req, res) => {
 
     if (req.session.auth) {
         const { userId } = req.session.auth;
+        const user = await db.User.findByPk(userId)
+        console.log(user)
         const comment = await db.Comment.create({
             content,
             hobbyPostId,
             userId,
         });
-
+      //  console.log(comment)
         res.json({
-            comment
+            comment, user
         })
     }
 }))
