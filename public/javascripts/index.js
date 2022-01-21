@@ -19,6 +19,8 @@ form.addEventListener('submit', async (e) => {
 
   const comment = await res.json();
   const commentContainer = document.querySelector('.comments-body')
-  // commentContainer.append(comment.comment.content)
-  
+  const p = document.createElement('p')
+  p.innerText = `${comment.comment.content}`
+   commentContainer.prepend(p)
+
 })
