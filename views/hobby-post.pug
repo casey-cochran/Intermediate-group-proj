@@ -11,8 +11,8 @@ block content
         if locals.user
             if locals.user.id === hobbyPost.userId
                 div(class='edit-delete-container')
-                    a(href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
-                    a(href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
+                    a(class= 'edit' href= `/hobbyposts/${hobbyPost.id}/edit`) Edit
+                    a(class= 'delete' href= `/hobbyposts/${hobbyPost.id}/delete`) Delete
     if locals.user
         if userShaka
             button(class='likes' id=`${hobbyPost.id}`) Shaka'd #{shakasCount}
