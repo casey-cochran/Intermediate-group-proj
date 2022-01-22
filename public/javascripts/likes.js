@@ -17,10 +17,10 @@
 
         if (likes.status === 'liked'){
             // count++
-            likesButton.innerText = `Shaka'd ${likes.count}`
+            likesButton.innerText = likes.count
         } else {
             // count--
-            likesButton.innerText = `Shaka ${likes.count}`
+            likesButton.innerText = likes.count
         }
     })
 }

@@ -21,9 +21,6 @@ form{
     margin-right: 50px;
     font-family: 'Times New Roman', Times, serif;
 }
-input:focus::placeholder {
-  color: transparent;
-}
 
 .input:focus::placeholder {
   color: transparent;
@@ -36,7 +33,7 @@ input:focus::placeholder {
 }
 
 .log-bod{
-    
+
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -87,4 +84,3 @@ input:focus::placeholder {
     margin-left: 100px;
     padding: 5px 14px;
 }
-
