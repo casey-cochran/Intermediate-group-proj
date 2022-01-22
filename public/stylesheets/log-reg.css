@@ -9,7 +9,7 @@ form{
     font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
     /* background-color: rgba(118, 179, 178, 0.701); */
     /* border: black solid 1px; */
-    
+
 }
 
 .input {
@@ -36,11 +36,17 @@ form{
 
 input:focus{
     outline: none;
+} 
+input::placeholder{
+    font-size: 15px;
 }
-
 ::-webkit-input-placeholder{
     text-align:center;
-    
+
+}
+
+input:focus::placeholder{
+    color:transparent;
 }
 
 .input:focus::placeholder {
