@@ -6,7 +6,7 @@ form{
     display:flex;
     justify-content: center;
     padding: 15px;
-    font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif'
     /* background-color: rgba(118, 179, 178, 0.701); */
     /* border: black solid 1px; */
 
@@ -36,9 +36,10 @@ form{
 
 input:focus{
     outline: none;
-} 
+}
 input::placeholder{
     font-size: 15px;
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif'
 }
 ::-webkit-input-placeholder{
     text-align:center;
