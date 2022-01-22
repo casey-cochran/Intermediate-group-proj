@@ -10,10 +10,10 @@ block content
             input(type='hidden' name='_csrf' value=csrfToken)
             div
                 label(class='new-post-form-label')
-                input(type='text' name='title' value=title size='40' placeholder='title' class='new-post-form-input' id='input-styling')
+                input(type='text' name='title' value=title size='40' placeholder='title...' class='new-post-form-input' id='input-styling')
             div
                 label(class='new-post-form-label')
                 textarea(name='content' placeholder='Share your hobby..' value=content required rows='40' cols='80' class='new-post-form-textarea')
             div(id='post-cancel')
-                button(type='submit' class='btn') Post
-                a(href='/' class='btn') Cancel
+                button(type='submit' class='btn hover' id='testing') Post
+                a(href='/' class='btn hover') Cancel
