@@ -7,7 +7,8 @@ const db = require('../db/models')
 /* GET home page. */
 router.get('/', asyncHandler(async (req, res) => {
   const hobbyPosts = await db.HobbyPost.findAll({
-    include: {model: db.User}
+    include: {model: db.User},
+    order: [["createdAt", "DESC"]]
   })
 
   const time = hobbyPosts.createdAt

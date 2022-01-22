@@ -71,15 +71,16 @@ router.post('/logout', (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const userId = parseInt(req.params.id, 10)
   const hobbyPosts = await db.HobbyPost.findAll({
-    
+
     where: {
       userId
     },
-    
-    include: db.User
+
+    include: db.User,
+    order: [["createdAt", "DESC"]]
   })
-  
-  const options = { month: 'short', day: 'numeric' }
+
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
   res.render('user-posts-page', { userId, hobbyPosts, options })
 }))
 
