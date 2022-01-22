@@ -9,11 +9,11 @@ block content
     div(class='log-bod')
       h1(class='log-title') Register
       input(class='input' type='hidden' name='_csrf' value=csrfToken)
-      +field('First Name', 'firstName', user.firstName)
-      +field('Last Name', 'lastName', user.lastName)
-      +field('Email Address', 'email', user.email)
-      +field('Password', 'password', user.password, 'password')
-      +field('Confirm Password', 'confirmPassword', '', 'password')
+      input(class='input', type='text', name='firstName', placeholder='First Name', value= user.firstName)
+      input(class='input', type='text', name='lastName', placeholder='Last Name', value= user.lastName)
+      input(class='input', type='email', name='email', placeholder='Email', value= user.email)
+      input(class='input', type='password', name='password', placeholder='Password', value= user.password)
+      input(class='input', type='password', name='confirmPassword', placeholder='Confirm Password')
       div(class='register-buttons btndiv')
-        button(type='submit' class='register-submit leftbtn btn') Register
-        a(href='/' class='register-cancel rightbtn btn') Cancel
+        button(type='submit' class='register-submit leftbtn btn') REGISTER
+        a(href='/' class='register-cancel rightbtn btn') CANCEL
