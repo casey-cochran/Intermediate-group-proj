@@ -1,15 +1,18 @@
 body{
-    background-image: linear-gradient(to right, rgba(6, 0, 123, 0.208),white,white,white,rgba(235, 110, 0, 0.208));
+    background-image: url(../background4.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    /* background: linear-gradient(to right, goldenrod, white, white, white, white, goldenrod) */
+    
 }
 
 form{
     display:flex;
     justify-content: center;
     padding: 15px;
-    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif'
-    /* background-color: rgba(118, 179, 178, 0.701); */
-    /* border: black solid 1px; */
-
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
+    /* border: black solid; */
+   
 }
 
 .input {
@@ -73,6 +76,8 @@ input:focus::placeholder{
     padding: 100px;
     /* margin-left: 100px; */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
+    background-color: rgb(255, 255, 255) ;
+
 }
 
 .btndiv{
