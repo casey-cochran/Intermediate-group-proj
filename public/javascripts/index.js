@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
 
 
+        const text = document.querySelector('textarea')
+        text.value=''
+        commentsBox.style.borderBottom = 'solid'
         commentsBox.prepend(h3)
         //}
 

@@ -24,15 +24,19 @@ block content
                 div(class='auth' id=`${auth}`) Shakas #{shakasCount}
 
         div(class='postpage-content') #{hobbyPost.content}
-    form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
-      .form-group
-        label(for='content') Comment
-        textarea#content.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
-      button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
+    if locals.user
+        form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
+          .form-group
+            label(for='content')
+            textarea#content.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
+          div(class='commentbtn-container')
+            button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
+    else
+        div(class='unauth-comments') Comments
 
     div(class="comments-container")
-        div(class="comments-box")
-            each comment in comments
+        each comment in comments
+            div(class="comments-box")
                 div(class="user-header" id=`${comment.User.firstName} ${comment.User.lastName}`) #{comment.User.firstName} #{comment.User.lastName}
                 div(class="comments-body")
                     p(class='comments-content') #{comment.content}

@@ -24,6 +24,12 @@ filter: hue-rotate(60deg);
 
 }
 
+.auth::before {
+    content: "🤙 ";
+    font-size: 20px;
+    filter: hue-rotate(175deg);
+}
+
 
 .likes{
     margin-left: 10px;
@@ -127,6 +133,49 @@ filter: hue-rotate(60deg);
 .dropdown:hover .dropdown-content {
     display: block;
   }
+
+
+#content.comment-form-control{
+    display: flex;
+    width:650px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.commentbtn-container{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.submit-comment{
+    color:red;
+    margin-top: 10px;
+}
+
+.comments-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.comments-box{
+    border-bottom: solid 1px lightgray;
+    max-width: 650px;
+}
+
+.user-header{
+    max-width: 650px;
+    color:red
+}
+
+.comments-body{
+    max-width: 650px;
+}
+
 
 /* .edit-delete-container{
     display: flex;
