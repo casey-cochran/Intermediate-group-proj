@@ -1,3 +1,12 @@
+/* this is the home header */
+.home-header-container {
+    margin: auto;
+    margin-top: 55px;
+    padding: 20px 0px 10px;
+    width: 850px;
+
+}
+
 .name-and-date-group {
     display: flex;
     flex-direction: row;
@@ -12,6 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border-bottom: solid 1px lightgray ;
 }
 
 .home-page-post-author {
@@ -52,15 +62,6 @@
 }
 
 
-/* this is the home header */
-.home-header-container {
-    border-bottom: solid 1px lightgray ;
-    margin: auto;
-    margin-top: 45px;
-    padding: 20px 0px 10px;
-    width: 650px;
-
-}
 
 .home-header {
     font-size: 22px;
