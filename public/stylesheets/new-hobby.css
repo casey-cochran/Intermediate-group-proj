@@ -115,7 +115,7 @@ input::placeholder {
 
 
 
-.btn {
+.btnPost {
 
     font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
     /* text-shadow: 0 1px #fff; */
@@ -135,7 +135,7 @@ input::placeholder {
 }
 
 
-.btn.hover{
+.btnPost.hover{
     --text-opacity: 1;
     color:#b3b3b1;
     background-color: transparent;
@@ -143,7 +143,7 @@ input::placeholder {
     border-color: #b3b3b1;
 }
 
-.btn:hover {
+.btnPost:hover {
     cursor: pointer;
     color: black;
     text-align: center;

@@ -8,19 +8,29 @@ body {
 }
 
 .welcome{
-  color: rgb(68, 189, 236)
+  color: black;
+  margin-left: 10px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.home.text{
+  font-size: 28px;
 }
 
 .left-side{
   display: flex;
   justify-self: flex-start;
-  gap: 20px;
+  gap: 1px;
+  align-items: center;
+  flex-direction: row;
 }
 
 .buttons-container {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  align-items: center;
 }
 
 .container.login-head {
@@ -54,16 +64,13 @@ body {
 
 
 
-
-
-
 .home{
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
 }
 
 .home:hover{
-  color: rgb(85, 85, 85);
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
@@ -113,6 +120,6 @@ h1 {
 .login, .register, .demo-user, .home-unauthorize {
   text-decoration: none;
 }
-.login:hover, .register:hover, .demo-user:hover, .home:hover {
+.login:hover, .register:hover, .demo-user:hover{
   color: rgba(85, 85, 85, 1);
 }
