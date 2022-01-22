@@ -20,24 +20,42 @@ body {
 .buttons-container {
   display: flex;
   justify-content: flex-end;
-  gap: 7px;
+  gap: 20px;
 }
 
-.share-hobby-button{
-  border-radius: 10px ;
+.container.login-head {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  gap: 250px;
 }
 
-.share-hobby-button:hover{
+.btn {
+  font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
+  /* text-shadow: 0 1px #fff; */
+  color: white;
+  font-weight: 1px;
+  border: black solid;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 5px 10px;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  transition-duration: 00.2s;
+}
+
+.btn:hover {
+  border: solid;
   cursor: pointer;
+  background-color: rgba(118, 179, 178, 0.701);
+  text-align: center;
 }
 
-.logout-button{
-  border-radius: 10px ;
-}
 
-.logout-button:hover {
-  cursor: pointer;
-}
+
+
+
 
 .home{
   text-decoration: underline;
@@ -74,7 +92,7 @@ h1 {
   /* border-bottom: 1px solid black; */
   background-color: white;
   padding: 15px 15px 20px 20px;
-  
+
 }
 
 .login-head{
@@ -91,9 +109,6 @@ h1 {
   text-decoration: underline;
 }
 
-body{
-  /* background-color: rgb(250, 250, 250, 1); */
-}
 
 .login, .register, .demo-user, .home-unauthorize {
   text-decoration: none;

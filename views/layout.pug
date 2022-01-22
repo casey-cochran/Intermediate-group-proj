@@ -7,7 +7,7 @@ html
         link(rel='stylesheet' href='/stylesheets/hobbypost.css')
         link(rel='stylesheet' href='/stylesheets/homepage.css')
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
-        
+
         link(rel='stylesheet' href='/stylesheets/errors.css')
 
   body
@@ -18,9 +18,9 @@ html
               span(class='welcome') Welcome #{user.firstName}!
             div(class='buttons-container')
               form(class='share-hobby' action='/hobbyPosts/new' method='get')
-                button(class='share-hobby-button' type='submit') Share Your Hobby
+                button(class='btn' type='submit') Share Your Hobby
               form(class='logout' action='/users/logout' method='post')
-                button(class='logout-button' type='submit') Logout
+                button(class='btn' type='submit') Logout
         else
           div(class='container')
             div(class='navbar')
