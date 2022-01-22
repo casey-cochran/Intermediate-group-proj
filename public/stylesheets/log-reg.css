@@ -42,9 +42,6 @@ input:focus{
     text-align:center;
     
 }
-input:focus::placeholder {
-  color: transparent;
-}
 
 .input:focus::placeholder {
   color: transparent;
@@ -58,7 +55,7 @@ input:focus::placeholder {
 }
 
 .log-bod{
-    
+
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -113,6 +110,3 @@ input:focus::placeholder {
     margin-left: 100px;
     padding: 5px 14px;
 }
-
-
-

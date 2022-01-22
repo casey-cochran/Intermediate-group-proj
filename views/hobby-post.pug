@@ -4,23 +4,26 @@ block content
     div(class='postpage-container')
         div(class='postpage-title') #{hobbyPost.title}
         div(class='post-details')
+            i(class="fa fa-user-circle")
             div(class='postpage-fullname') #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
             div(class='postpage-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
+            if locals.user
+                if locals.user.id === hobbyPost.userId
+                    div(class='dropdown')
+                        button(class='dropbtn')
+                            i(class='fa fa-ellipsis-h fa-10x')
+                        div(class='dropdown-content')
+                            a(href= `/hobbyposts/${hobbyPost.id}/edit`) EDIT
+                            a(href= `/hobbyposts/${hobbyPost.id}/delete`) DELETE
+            if locals.user
+                    if userShaka
+                        button(class='likes' id=`${hobbyPost.id}`) #{shakasCount}
+                    else
+                        button(class='likes' id=`${hobbyPost.id}`) #{shakasCount}
+            else
+                div(class='auth' id=`${auth}`) Shakas #{shakasCount}
+
         div(class='postpage-content') #{hobbyPost.content}
-
-        if locals.user
-            if locals.user.id === hobbyPost.userId
-                div(class='edit-delete-container')
-                    a(class='edit btn' href= `/hobbyposts/${hobbyPost.id}/edit`) EDIT
-                    a(class='delete btn' href= `/hobbyposts/${hobbyPost.id}/delete`) DELETE
-    if locals.user
-        if userShaka
-            button(class='likes' id=`${hobbyPost.id}`) Shaka'd #{shakasCount}
-        else
-            button(class='likes' id=`${hobbyPost.id}`) Shaka #{shakasCount}
-    else
-        div(class='auth' id=`${auth}`) Shakas #{shakasCount}
-
     form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
       .form-group
         label(for='content') Comment
