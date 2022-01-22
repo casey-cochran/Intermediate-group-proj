@@ -30,14 +30,21 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         const h3 = document.createElement('h3')
         const p = document.createElement('p')
+        const newDiv = document.createElement('div')
 
         h3.innerText = `${comment.user.firstName} ${comment.user.lastName}`
         p.innerText = `${comment.comment.content}`
-        h3.append(p);
+        newDiv.append(h3)
+        newDiv.append(p);
 
 
 
-        commentsBox.prepend(h3)
+        const text = document.querySelector('textarea')
+        text.value=''
+        h3.style.color= 'red'
+        newDiv.style.borderBottom = 'solid 1px rgb(211, 211, 211)'
+
+        commentsBox.prepend(newDiv)
         //}
 
 
