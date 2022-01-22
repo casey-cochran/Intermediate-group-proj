@@ -3,7 +3,7 @@
     flex-direction: row;
     margin-top: 25px;
     margin-bottom: 25px;
-    
+
 }
 
 .each-field{
@@ -15,7 +15,7 @@
 }
 
 .log-bod{
-    
+
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

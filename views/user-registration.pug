@@ -7,7 +7,7 @@ block content
   +validationErrorSummary(errors)
   form(action='/users/sign-up' method='post')
     div(class='log-bod')
-      h1(class='log-title') Register 
+      h1(class='log-title') Register
       input(class='input' type='hidden' name='_csrf' value=csrfToken)
       +field('First Name', 'firstName', user.firstName)
       +field('Last Name', 'lastName', user.lastName)

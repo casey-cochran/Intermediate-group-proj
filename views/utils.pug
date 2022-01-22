@@ -9,4 +9,4 @@ mixin validationErrorSummary(errors)
 mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
   div(class='form-entries')
     label(for=fieldName)= labelText
-    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='input')
+    input(type=fieldType id=fieldName name=fieldName, placeholder=fieldName value=fieldValue class='input')
