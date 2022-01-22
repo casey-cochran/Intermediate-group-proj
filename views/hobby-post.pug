@@ -28,7 +28,7 @@ block content
         form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
           .form-group
             label(for='content')
-            textarea#content.comment-form-control(type='content', name="content", placeholder='What do YOU think?')
+            textarea#content.comment-form-control(type='content', name="content", placeholder='Share Your Thoughts...')
           div(class='commentbtn-container')
             button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
     else
@@ -38,6 +38,7 @@ block content
         each comment in comments
             div(class="comments-box")
                 div(class="user-header" id=`${comment.User.firstName} ${comment.User.lastName}`) #{comment.User.firstName} #{comment.User.lastName}
+                div(class="time-header") #{comment.createdAt.toLocaleDateString(undefined, options)}
                 div(class="comments-body")
                     p(class='comments-content') #{comment.content}
 
