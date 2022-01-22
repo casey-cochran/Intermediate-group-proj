@@ -193,7 +193,9 @@ filter: hue-rotate(190deg);
 
 .user-header{
     max-width: 650px;
-    color:red
+    color: goldenrod;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .comments-body{
