@@ -17,6 +17,13 @@ body {
 .home.text{
   font-size: 28px;
 }
+#imgLogo {
+  margin-top: 2px;
+}
+
+.container.container.login-head.invisible{
+  background-color: transparent;
+}
 
 .left-side{
   display: flex;
