@@ -16,7 +16,7 @@
 .likes::before {
     content: "🤙 ";
     font-size: 20px;
-    filter: hue-rotate(175deg);
+    filter: hue-rotate(0deg);
 }
 
 .likes:hover{
