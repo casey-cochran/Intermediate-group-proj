@@ -32,6 +32,7 @@ input{
     width: 80px;
     display: inline-block;
 
+
   }
 .new-post-form{
     padding: 15px 5px;
@@ -199,7 +200,21 @@ input::placeholder {
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
 }
 
-.buttons{
+/* .buttons{
     max-width: 1200px;
     margin: 0 auto;
+} */
+
+.buttons.edit-post{
+    margin: auto;
+    margin-top: 100px;
+}
+
+#top-input-area{
+    display: flex;
+    align-items: center;
+}
+
+.new-post-form-textarea.test{
+    margin-top: 9px;
 }

@@ -11,13 +11,13 @@ block content
     form(action=`/hobbyPosts/${post.id}/edit` method='post' class= 'new-post-form' id="form1")
     form(action=`/hobbyPosts/${post.id}/delete` method='post' class='new-post-form' id="form2")
           input(type='hidden' name='_csrf' value=csrfToken form="form1")
-          div(form="form1")
+          div(form="form1" id='top-input-area')
               label(class='new-post-form-label edit-title' form="form1") Title
               input(type='text' name='title' value=post.title size='40' class='new-post-form-input' id='input-styling' required form="form1")
-          div(form="form1")
+          div(form="form1" id='bottom-input-area')
               label(class='new-post-form-label edit-title' form="form1") Post
-              textarea(type='text' name='content' required rows='40' cols='80' class='new-post-form-textarea' form="form1") #{post.content}
-          div(class= 'buttons' form="form1")
+              textarea(type='text' name='content' required rows='40' cols='80' class='new-post-form-textarea test' form="form1") #{post.content}
+          div(class= 'buttons edit-post' form="form1")
               button(type='submit' class='btnPost hover' form="form1") Update Post
               a(href=`/hobbyPosts/${post.id}` class='btnPost hover' form="form1") Cancel
               button(type='submit' class='delete-post hover' form="form2") Delete
