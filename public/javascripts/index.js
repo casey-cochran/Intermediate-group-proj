@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
-        console.log('are we in ')
         const postId = commentButton.id
         const formData = new FormData(form)
         const content = formData.get('content')
@@ -28,6 +27,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         let commentsBox = document.querySelector('.comments-box')
 
+    
         const h3 = document.createElement('h3')
         const p = document.createElement('p')
         const h4 = document.createElement('h4')
@@ -51,7 +51,9 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         text.value=''
         h3.style.color= 'goldenrod'
         h3.style.marginTop= '10px'
+        h3.style.fontWeight= 'bold'
         newDiv.style.borderBottom = 'solid 1px rgb(211, 211, 211)'
+        p.style.lineHeight= '1.6'
 
         commentsBox.prepend(newDiv)
         //}

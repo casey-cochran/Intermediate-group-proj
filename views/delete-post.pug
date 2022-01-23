@@ -1,13 +1,13 @@
 extends layout.pug
 
 block content
+    link(rel='stylesheet' href='/stylesheets/postDelete.css')
     if locals.user
         if locals.user.id === post.userId
-            form(action=`/hobbyposts/${post.id}/delete` method='post')
+            form(action=`/hobbyposts/${post.id}/delete` method='post' class='post-delete')
+                div(class='delete-container')
+                    p(class='delete-title') #{post.title}
+                    p(class='delete-content') #{post.content}
                 div
-                    p= `${post.title}`
-                div
-                    p= `${post.content}`
-                div
-                    button(type='submit') Delete Post
-                    a(href=`/hobbyposts/${post.id}`) Cancel
+                    button(type='submit' class='post-delete-btn') Delete Post
+                    a(href=`/hobbyposts/${post.id}` class='delete-cancel-btn') Cancel

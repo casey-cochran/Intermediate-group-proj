@@ -5,23 +5,23 @@ block content
         div(class='postpage-title') #{hobbyPost.title}
         div(class='post-details')
             i(class="fa fa-user-circle")
-            div(class='postpage-fullname') #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
+            a(class='postpage-fullname' href=`/users/${hobbyPost.User.id}`) #{hobbyPost.User.firstName} #{hobbyPost.User.lastName}
             div(class='postpage-date') #{hobbyPost.createdAt.toLocaleDateString(undefined, options)}
             if locals.user
                 if locals.user.id === hobbyPost.userId
-                    div(class='dropdown')
-                        button(class='dropbtn')
+                    div(class='dropdown-container')
+                        button(class='dropdwnbtn')
                             i(class='fa fa-ellipsis-h fa-10x')
-                        div(class='dropdown-content')
+                        div(class='dropdown-options')
                             a(href= `/hobbyposts/${hobbyPost.id}/edit`) EDIT
-                            a(href= `/hobbyposts/${hobbyPost.id}/delete`) DELETE
+                            //- a(href= `/hobbyposts/${hobbyPost.id}/delete`) DELETE
             if locals.user
                     if userShaka
                         button(class='likes' id=`${hobbyPost.id}`) #{shakasCount}
                     else
                         button(class='likes' id=`${hobbyPost.id}`) #{shakasCount}
             else
-                div(class='auth' id=`${auth}`) Shakas #{shakasCount}
+                div(class='auth' id=`${auth}`) #{shakasCount}
 
         div(class='postpage-content') #{hobbyPost.content}
     if locals.user
@@ -30,9 +30,20 @@ block content
             label(for='content')
             textarea#content.comment-form-control(type='content', name="content", placeholder='Share Your Thoughts...')
           div(class='commentbtn-container')
-            button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share comment
+            button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share Comment
     else
         div(class='unauth-comments') Comments
+        div(class='cmnt-title-border')
+
+
+    //- if locals.user
+    //-     if locals.user.id === comments.userId
+    //-         div(class='dropdown-container')
+    //-             button(class='dropdwnbtn')
+    //-                 i(class='fa fa-ellipsis-h fa-10x')
+    //-             div(class='dropdown-options')
+    //-                 a(class= 'comment-edit' href= `/hobbyposts/${hobbyPost.id}/comments/edit`) EDIT
+    //-                 a(class= 'comment-delete' href= `/hobbyposts/${hobbyPost.id}/comments/delete`) DELETE
 
     div(class="comments-container")
         each comment in comments

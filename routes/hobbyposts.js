@@ -124,6 +124,26 @@ router.post('/:id(\\d+)/comments', authorize, asyncHandler(async (req, res) => {
     }
 }))
 
+// router.post('/:id(\\d+)/comments/edit', authorize, asyncHandler(async (req, res) => {
+//     const hobbyPostId = parseInt(req.params.id, 10);
+//     const { content } = req.body;
+
+//     if (req.session.auth) {
+//         const { userId } = req.session.auth;
+//         const user = await db.User.findByPk(userId)
+//         // console.log(user)
+//         const comment = await db.Comment.update({
+//             content,
+//             hobbyPostId,
+//             userId,
+//         });
+//       //  console.log(comment)
+//         res.json({
+//             comment, user
+//         })
+//     }
+// }));
+
 
 router.get('/:id(\\d+)/edit', csrfProtection,
     asyncHandler(async (req, res) => {
@@ -166,29 +186,39 @@ router.post('/:id(\\d+)/edit', csrfProtection, postValidators,
         }
     }));
 
-router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
-
-    const postId = parseInt(req.params.id, 10);
-    const post = await db.HobbyPost.findByPk(postId)
-    // console.log(post)
-    res.render('delete-post', { post })
-}))
-
-
-
-
 router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
-    const postId = parseInt(req.params.id, 10);
-    // const {userId} = req.session.auth
-    const post = await db.HobbyPost.findByPk(postId);
-    // const post = await db.HobbyPost.findOne({
-    //     where: { userId },
-    //     include: db.Comment,
-    //     include: db.Shaka
-    // });
-    await post.destroy();
-    res.redirect('/')
+        const postId = parseInt(req.params.id, 10);
+        // const {userId} = req.session.auth
+        console.log('im gettting here')
+        const post = await db.HobbyPost.findByPk(postId);
+        await post.destroy();
+        res.redirect('/')
 }))
+
+
+// router.get('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
+
+//     const postId = parseInt(req.params.id, 10);
+//     const post = await db.HobbyPost.findByPk(postId)
+//     // console.log(post)
+//     res.render('delete-post', { post })
+// }))
+
+
+
+
+// router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
+//     const postId = parseInt(req.params.id, 10);
+//     // const {userId} = req.session.auth
+//     const post = await db.HobbyPost.findByPk(postId);
+//     // const post = await db.HobbyPost.findOne({
+//     //     where: { userId },
+//     //     include: db.Comment,
+//     //     include: db.Shaka
+//     // });
+//     await post.destroy();
+//     res.redirect('/')
+// }))
 
 
 router.post(
