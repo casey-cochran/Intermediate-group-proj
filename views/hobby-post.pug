@@ -28,7 +28,7 @@ block content
         form(class="create-comment-form" method="post" action=`/hobbyposts/${hobbyPost.id}/comments`)
           .form-group
             label(for='content')
-            textarea#content.comment-form-control(type='content', name="content", placeholder='Share Your Thoughts...')
+            textarea#content.comment-form-control(type='content', name="content", placeholder='Share Your Thoughts...' required)
           div(class='commentbtn-container')
             button(type="submit" class='submit-comment' id=`${hobbyPost.id}`) Share Comment
     else
