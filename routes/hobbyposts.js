@@ -124,26 +124,52 @@ router.post('/:id(\\d+)/comments', authorize, asyncHandler(async (req, res) => {
     }
 }))
 
-// router.post('/:id(\\d+)/comments/edit', authorize, asyncHandler(async (req, res) => {
-//     const hobbyPostId = parseInt(req.params.id, 10);
-//     const { content } = req.body;
+router.get('/:postId(\\d+)/comments/:commentId(\\d+)/edit', csrfProtection,
+    asyncHandler(async (req, res) => {
+        const commentId = parseInt(req.params.commentId, 10)
+        const postId = parseInt(req.params.postId, 10);
+        const post = await db.HobbyPost.findByPk(postId);
+        const comment = await db.Comment.findByPk(commentId)
+        console.log(comment)
+        res.render('edit-comment', {
+            title: 'Edit Comment',
+            post,
+            comment,
+            csrfToken: req.csrfToken(),
+        });
+    }));
 
-//     if (req.session.auth) {
-//         const { userId } = req.session.auth;
-//         const user = await db.User.findByPk(userId)
-//         // console.log(user)
-//         const comment = await db.Comment.update({
-//             content,
-//             hobbyPostId,
-//             userId,
-//         });
-//       //  console.log(comment)
-//         res.json({
-//             comment, user
-//         })
-//     }
-// }));
+router.post('/:postId(\\d+)/comments/:commentId(\\d+)/edit', csrfProtection,
+    asyncHandler(async (req, res) => {
+        const commentId = parseInt(req.params.commentId, 10)
+        const postId = parseInt(req.params.postId, 10);
+        const post = await db.HobbyPost.findByPk(postId);
+        const commentToUpdate = await db.Comment.findByPk(commentId)
 
+
+        const {
+            content,
+        } = req.body;
+
+        const comment = {
+            content,
+        };
+
+        await commentToUpdate.update(comment);
+        res.redirect(`/hobbyPosts/${postId}`);
+
+
+    }));
+
+router.post('/:postId(\\d+)/comments/:commentId(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
+    const commentId = parseInt(req.params.commentId, 10)
+    // const {userId} = req.session.auth
+    const postId = parseInt(req.params.postId, 10);
+    // const post = await db.HobbyPost.findByPk(postId);
+    const comment = await db.Comment.findByPk(commentId)
+    await comment.destroy();
+    res.redirect(`/hobbyPosts/${postId}`)
+}))
 
 router.get('/:id(\\d+)/edit', csrfProtection,
     asyncHandler(async (req, res) => {
@@ -189,7 +215,7 @@ router.post('/:id(\\d+)/edit', csrfProtection, postValidators,
 router.post('/:id(\\d+)/delete', authorize, asyncHandler(async (req, res) => {
         const postId = parseInt(req.params.id, 10);
         // const {userId} = req.session.auth
-        console.log('im gettting here')
+        // console.log('im gettting here')
         const post = await db.HobbyPost.findByPk(postId);
         await post.destroy();
         res.redirect('/')
