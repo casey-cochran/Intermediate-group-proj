@@ -138,7 +138,7 @@ filter: hue-rotate(190deg);
   }
 
 .dropdown-options a:hover {
-    border: solid black;
+    /* border: solid black; */
     border-radius: 5px;
     cursor: pointer;
     background-color: rgba(118, 179, 178, 0.701);
@@ -176,7 +176,7 @@ filter: hue-rotate(190deg);
     color:#b3b3b1;
     font-weight: 400px;
     letter-spacing: 1px;
-   
+
 }
 
 .commentbtn-container{
