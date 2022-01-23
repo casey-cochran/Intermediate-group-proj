@@ -1,7 +1,7 @@
 body{
-    background-image: url(../background4.png);
+    /* background-image: url(../background5.png);
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size:70% 200%; */
     /* background: linear-gradient(to right, goldenrod, white, white, white, white, goldenrod) */
     
 }
@@ -90,7 +90,7 @@ input:focus::placeholder{
 
     font-family: sohne, Helvetica Neue, Helvetica, Arial, sans-serif;
     /* text-shadow: 0 1px #fff; */
-    color: white;
+    color: rgba(255, 255, 255, 0.803);
     font-weight: 1px;
     border: black solid;
     font-size: 15px;
