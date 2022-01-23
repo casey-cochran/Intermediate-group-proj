@@ -34,7 +34,7 @@ input{
 
   }
 .new-post-form{
-    padding: 105px 5px;
+    padding: 15px 5px;
     width: 100%;
     color: black;
 
@@ -131,7 +131,6 @@ input::placeholder {
     transition-duration: 00.2s;
     padding: 5px 50px;
     margin-right: 100px;
-    width: auto;
 }
 
 
@@ -159,5 +158,48 @@ input::placeholder {
     color:#b3b3b1;
     font-weight: 400px;
     letter-spacing: 1px;
-    
+
+}
+
+
+.delete-post {
+
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
+    /* text-shadow: 0 1px #fff; */
+    color: white;
+    font-weight: 1px;
+    border: black solid;
+    border-width: 1px;
+    font-size: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    transition-duration: 00.2s;
+    padding: 5px 50px;
+    margin-right: 100px;
+    width: auto;
+}
+
+
+.delete-post.hover{
+    --text-opacity: 1;
+    color:#b3b3b1;
+    background-color: transparent;
+    --border-opacity: 1;
+    border-color: #b3b3b1;
+}
+
+.delete-post:hover {
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
+}
+
+.buttons{
+    max-width: 1200px;
+    margin: 0 auto;
 }

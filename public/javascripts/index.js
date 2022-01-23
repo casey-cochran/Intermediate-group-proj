@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault()
-        console.log('are we in ')
         const postId = commentButton.id
         const formData = new FormData(form)
         const content = formData.get('content')
@@ -28,17 +27,19 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         let commentsBox = document.querySelector('.comments-box')
 
+    
         const h3 = document.createElement('h3')
         const p = document.createElement('p')
         const h4 = document.createElement('h4')
         const newDiv = document.createElement('div')
         const options = { month: 'short', day: 'numeric' }
 
-        const time = comment.comment.createdAt()
-        time.toLocaleDateString(undefined, options)
+        const createdDate = comment.comment.createdAt
+        const newDate= new Date(`${createdDate}`)
+        const displayDate= newDate.toLocaleDateString(undefined, options)
 
         h3.innerText = `${comment.user.firstName} ${comment.user.lastName}`
-        h4.innerText = `${time}`
+        h4.innerText = `${displayDate}`
         p.innerText = `${comment.comment.content}`
         newDiv.append(h3)
         newDiv.append(h4)
@@ -48,9 +49,11 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         const text = document.querySelector('textarea')
         text.value=''
-        h3.style.color= 'black'
+        h3.style.color= 'goldenrod'
         h3.style.marginTop= '10px'
+        h3.style.fontWeight= 'bold'
         newDiv.style.borderBottom = 'solid 1px rgb(211, 211, 211)'
+        p.style.lineHeight= '1.6'
 
         commentsBox.prepend(newDiv)
         //}
