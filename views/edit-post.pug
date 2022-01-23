@@ -3,15 +3,18 @@ extends layout.pug
 include utils.pug
 
 block content
+  link(rel='stylesheet' href='/stylesheets/new-hobby.css')
   +validationErrorSummary(errors)
-  form(action=`/hobbyPosts/${post.id}/edit` method='post')
+  div(class="bkgd-div-left")
+    img(src="../background4.png" id='bkgd')
+  form(action=`/hobbyPosts/${post.id}/edit` method='post' class='new-post-form')
         input(type='hidden' name='_csrf' value=csrfToken)
         div
-            label Title
-            input(type='text' name='title' value=post.title size='40')
+            label(class='new-post-form-label edit-title') Title
+            input(type='text' name='title' value=post.title size='40' class='new-post-form-input' id='input-styling' required)
         div
-            label Content
-            textarea(type='text' name='content' required rows='40' cols='80') #{post.content}
+            label(class='new-post-form-label edit-title') Post
+            textarea(type='text' name='content' required rows='40' cols='80' class='new-post-form-textarea') #{post.content}
         div
-            button(type='submit') Update Post
-            a(href=`/hobbyPosts/${post.id}`) Cancel
+            button(type='submit' class='btnPost hover') Update Post
+            a(href=`/hobbyPosts/${post.id}` class='btnPost hover' ) Cancel

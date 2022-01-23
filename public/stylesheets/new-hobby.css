@@ -151,3 +151,13 @@ input::placeholder {
     border-radius: 0.25rem;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
 }
+
+.edit-title{
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
+    font-size: 35px;
+    text-transform: capitalize;
+    color:#b3b3b1;
+    font-weight: 400px;
+    letter-spacing: 1px;
+    
+}
