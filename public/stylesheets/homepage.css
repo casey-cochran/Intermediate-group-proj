@@ -1,7 +1,7 @@
 /* this is the home header */
 .home-header-container {
     margin: auto;
-    margin-top: 55px;
+    margin-top: 40px;
     padding: 20px 0px 10px;
     width: 850px;
 
@@ -53,7 +53,7 @@
 
 .home-page-title-link:hover {
     /* font-size: 19px; */
-   
+
 }
 
     /* margin-left: 20px; */
