@@ -5,13 +5,13 @@ include utils.pug
 block content
   link(rel='stylesheet' href='/stylesheets/new-hobby.css')
   +validationErrorSummary(errors)
-    
+
   div(class='form-groups')
     form(action=`/hobbyPosts/${post.id}/comments/${comment.id}/edit` method='post' class= 'new-post-form' id="form1")
-    form(action=`/hobbyPosts/${post.id}comments/${comment.id}/delete` method='post' class='new-post-form' id="form2")
+    form(action=`/hobbyPosts/${post.id}/comments/${comment.id}/delete` method='post' class='new-post-form' id="form2")
           input(type='hidden' name='_csrf' value=csrfToken form="form1")
           div(form="form1" id='bottom-input-area')
-              label(class='new-post-form-label edit-title' form="form1") Comment
+              label(class='new-post-form-label edit-title' form="form1") Edit
               textarea(type='text' name='content' required rows='40' cols='80' class='new-post-form-textarea test' form="form1") #{comment.content}
           div(class= 'buttons edit-post' form="form1")
               button(type='submit' class='btnPost hover' form="form1") Update Comment
