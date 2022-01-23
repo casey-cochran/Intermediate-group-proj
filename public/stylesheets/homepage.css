@@ -12,11 +12,13 @@
     flex-direction: row;
     gap: 15px;
     margin-bottom: 10px;
-    margin-top: 28px;
+    margin-top: 16px;
     align-items: center;
 }
 .name-and-date-group.users{
     margin-bottom: 0;
+    margin-top: 5px;
+
 }
 
 .post-group {
@@ -26,6 +28,14 @@
     flex-direction: column;
     justify-content: flex-start;
     border-bottom: solid 1px lightgray ;
+    transition: background-color 1000ms;
+    padding-left: 20px;
+
+}
+.post-group:hover {
+    background-color: #eceff1;
+    box-shadow: 0 2px 1px rgba(0,0,0,.5)
+
 }
 
 .home-page-post-author {
@@ -68,6 +78,9 @@
     margin-bottom: 20px;
     font-weight: 400;
 }
+.title-link-container.users {
+    margin-bottom: 10px;
+}
 
 
 
@@ -75,4 +88,10 @@
     font-size: 22px;
     font-weight: bold;
     color: rgba(41, 41, 41, 1);
+}
+
+.edit-delete-container{
+    padding-bottom: 5px;
+    display: flex;
+    gap: 10px;
 }
