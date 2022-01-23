@@ -111,7 +111,7 @@ router.post('/:id(\\d+)/comments', authorize, asyncHandler(async (req, res) => {
     if (req.session.auth) {
         const { userId } = req.session.auth;
         const user = await db.User.findByPk(userId)
-        console.log(user)
+        // console.log(user)
         const comment = await db.Comment.create({
             content,
             hobbyPostId,

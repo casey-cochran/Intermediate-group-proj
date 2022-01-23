@@ -34,11 +34,12 @@ document.addEventListener("DOMContentLoaded", async (e) => {
         const newDiv = document.createElement('div')
         const options = { month: 'short', day: 'numeric' }
 
-        const time = comment.comment.createdAt()
-        time.toLocaleDateString(undefined, options)
+        const createdDate = comment.comment.createdAt
+        const newDate= new Date(`${createdDate}`)
+        const displayDate= newDate.toLocaleDateString(undefined, options)
 
         h3.innerText = `${comment.user.firstName} ${comment.user.lastName}`
-        h4.innerText = `${time}`
+        h4.innerText = `${displayDate}`
         p.innerText = `${comment.comment.content}`
         newDiv.append(h3)
         newDiv.append(h4)
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 
         const text = document.querySelector('textarea')
         text.value=''
-        h3.style.color= 'black'
+        h3.style.color= 'goldenrod'
         h3.style.marginTop= '10px'
         newDiv.style.borderBottom = 'solid 1px rgb(211, 211, 211)'
 
