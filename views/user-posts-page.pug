@@ -8,12 +8,12 @@ block content
                 div(class='name-and-date-group users')
                     p(class='home-page-post-author')= `${post.User.firstName} ${post.User.lastName}`
                     div(class='home-page-share-date' id='share-date') #{post.createdAt.toLocaleDateString(undefined, options)}
-                div(class='title-link-container')
+                div(class='title-link-container users')
                     a(class='home-page-title-link' href=`/hobbyposts/${post.id}`) #{post.title}
                 //- div= post.title
                 //- div= post.content
                 if locals.user
                     if locals.user.id === post.userId
                         div(class='edit-delete-container')
-                            a(href= `/hobbyposts/${post.id}/edit`) Edit
-                            a(href= `/hobbyposts/${post.id}/delete`) Delete
+                            a(href= `/hobbyposts/${post.id}/edit` class='btn') Edit
+                            a(href= `/hobbyposts/${post.id}/delete` class='btn' ) Delete
