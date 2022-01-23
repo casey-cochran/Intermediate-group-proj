@@ -28,7 +28,7 @@ const signUpValidators = [
     .withMessage('Last Name must not be more than 100 characters'),
   check('email')
     .exists({checkFalsy: true})
-    .withMessage('Must provide an Email Address')
+    .withMessage('Please provide an Email Address')
     .isLength({max: 255})
     .withMessage('Email must not be more than 255 characters')
     .isEmail()
@@ -43,14 +43,14 @@ const signUpValidators = [
     }),
   check('password')
     .exists({checkFalsy: true})
-    .withMessage('Must provide a password')
+    .withMessage('Please provide a password')
     .isLength({max: 50})
     .withMessage('Password must not be more than 50 characters')
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
     .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and a special character'),
   check('confirmPassword')
     .exists({checkFalsy: true})
-    .withMessage('Please provide your password')
+    .withMessage('Passwords must match')
     .isLength({max: 50})
     .withMessage('Password must not be more than 50 characters')
     .custom((value, {req}) => {

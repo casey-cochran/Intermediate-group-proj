@@ -36,7 +36,7 @@
 }
 
 .home-page-post-author:hover {
-    color: rgba(85, 85, 85, 1);
+    cursor:pointer;
 }
 
 .home-page-title-link {
@@ -46,10 +46,14 @@
     color: rgba(41, 41, 41, 1);
     font-size: 16px;
     line-height: 20px;
+    /* transition-property: font-size;
+    transition-delay: .2s;
+    transition-duration: .5s; */
 }
 
 .home-page-title-link:hover {
-    color: rgba(85, 85, 85, 1);
+    /* font-size: 19px; */
+   
 }
 
     /* margin-left: 20px; */
