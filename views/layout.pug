@@ -1,5 +1,8 @@
 doctype html
 html
+  div(class="bkgd-div-left")
+    img(src="../background4.png" id='bkgd')
+  
   head
       block head
         title="InterMedium"
@@ -11,6 +14,7 @@ html
         link(rel='stylesheet' href='/stylesheets/errors.css')
 
   body
+        
         if locals.authenticated
           div(class='container login-head')
             div(class='left-side')
@@ -33,4 +37,5 @@ html
                 a(class='btn' href='/login') Login
                 a(class='btn' href='/users/sign-up') Register
                 a(class='btn' href='/login/demo-login') Login As Demo User
+        
         block content

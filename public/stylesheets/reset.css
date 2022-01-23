@@ -1,10 +1,54 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  /* background-image: url(../background4.png);
+  background-repeat: no-repeat;
+  background-size:500px;
+  background-position: 0px 550px; */
 }
+
+.bkgd-div-left{
+  size: 100px;
+  z-index: -1;
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+
+}
+
+.bkgd-div-right{
+  /* max-height: 10px;
+  max-width: 20px; */
+  bottom: -100px;
+  right: 0px;
+  z-index: -2;
+  position: absolute;
+  transform: scaleX(-1);
+  /* bottom: -50px; */
+  /* left: -50px; */
+  /* width:50vw;
+  height: 50vh; */
+
+}
+
+#bkgd{
+  max-width: 800px; 
+}
+#bkgd2{
+  /* max-height:1fr; */
+  height: fit-content; 
+  max-height: 1000px;
+  /* max-width: 200px; */
+  
+}
+
 
 * {
   box-sizing: border-box;
+
+  
 }
 
 .welcome{
@@ -134,3 +178,5 @@ h1 {
 .login:hover, .register:hover, .demo-user:hover{
   color: rgba(85, 85, 85, 1);
 }
+
+
