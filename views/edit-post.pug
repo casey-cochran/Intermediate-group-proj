@@ -5,8 +5,6 @@ include utils.pug
 block content
   link(rel='stylesheet' href='/stylesheets/new-hobby.css')
   +validationErrorSummary(errors)
-  div(class="bkgd-div-left")
-    img(src="../background4.png" id='bkgd')
   div(class='form-groups')
     form(action=`/hobbyPosts/${post.id}/edit` method='post' class= 'new-post-form' id="form1")
     form(action=`/hobbyPosts/${post.id}/delete` method='post' class='new-post-form' id="form2")
