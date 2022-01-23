@@ -1,15 +1,19 @@
 extends layout.pug
 
 block content
-
-    each post in hobbyPosts
-        div= `${post.User.firstName} ${post.User.lastName}`
-
-        div= post.createdAt.toLocaleDateString(undefined, options)
-        div= post.title
-        div= post.content
-        if locals.user
-            if locals.user.id === post.userId
-                div(class='edit-delete-container')
-                    a(href= `/hobbyposts/${post.id}/edit`) Edit
-                    a(href= `/hobbyposts/${post.id}/delete`) Delete
+    div(class='home-header-container')
+        div(class='home-header') Hobby Posts to explore below
+        each post in hobbyPosts
+            div(class='post-group')
+                div(class='name-and-date-group users')
+                    p(class='home-page-post-author')= `${post.User.firstName} ${post.User.lastName}`
+                    div(class='home-page-share-date' id='share-date') #{post.createdAt.toLocaleDateString(undefined, options)}
+                div(class='title-link-container')
+                    a(class='home-page-title-link' href=`/hobbyposts/${post.id}`) #{post.title}
+                //- div= post.title
+                //- div= post.content
+                if locals.user
+                    if locals.user.id === post.userId
+                        div(class='edit-delete-container')
+                            a(href= `/hobbyposts/${post.id}/edit`) Edit
+                            a(href= `/hobbyposts/${post.id}/delete`) Delete
