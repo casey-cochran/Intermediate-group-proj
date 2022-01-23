@@ -34,6 +34,7 @@ form{
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
+    width:100%;
 
 }
 
@@ -42,7 +43,8 @@ input:focus{
 }
 input::placeholder{
     font-size: 15px;
-    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif'
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
+    width: 100%;
 }
 ::-webkit-input-placeholder{
     text-align:center;
@@ -128,7 +130,9 @@ input:focus::placeholder{
   z-index: -1;
   position: absolute;
   bottom: -100px;
-  left: -100px;
+  left: -100px; 
+  bottom:0;
+  display: inline; */
 
 }
 
@@ -148,11 +152,15 @@ input:focus::placeholder{
   height: 50vh; */
 
   position: absolute;
+  z-index: -1;
 
 }
 
 #bkgd{
-  max-width: 800px; 
+   max-width: 800px;  
+  /* position: sticky;
+  bottom: -50px;
+  height: 100vh; */
 }
 #bkgd2{
   /* max-height:1fr; */
@@ -164,6 +172,6 @@ input:focus::placeholder{
 
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 105vh;
   
 }
