@@ -151,8 +151,9 @@ input:focus::placeholder{
   /* width:50vw;
   height: 50vh; */
 
-  position: absolute;
+  position: fixed;
   z-index: -1;
+  top: 0;
 
 }
 
