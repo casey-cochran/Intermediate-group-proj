@@ -52,9 +52,11 @@ block content
                 div(class="time-header") #{comment.createdAt.toLocaleDateString(undefined, options)}
                 div(class="comments-body")
                     p(class='comments-content') #{comment.content}
+                        //- a(href= `/hobbyposts/${hobbyPost.id}/comments/${comment.id}/edit` class='edit comment') Edit Comment
                 if locals.user
                     if locals.user.id === comment.userId
-                        a(href= `/hobbyposts/${hobbyPost.id}/comments/${comment.id}/edit`) Edit Comment
+                        div(class='edit-comment-btn')
+                            a(href= `/hobbyposts/${hobbyPost.id}/comments/${comment.id}/edit` class="edit-button") edit
 
 
     script(type="module" src="/javascripts/index.js")
