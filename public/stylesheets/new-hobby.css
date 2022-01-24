@@ -207,7 +207,7 @@ input::placeholder {
 
 .buttons.edit-post{
     margin: auto;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 #top-input-area{
@@ -217,4 +217,30 @@ input::placeholder {
 
 .new-post-form-textarea.test{
     margin-top: 9px;
+}
+
+.new-post-form-label.edit-title.edit {
+    font-size: 38px;
+
+}
+
+.new-post-form-textarea.test.edit{
+    transition: box-shadow 500ms,
+                border-radius 500ms,
+                border-style 700ms,
+                border-color 700ms,
+                border-width 700ms;
+    padding-top: 6px;
+    padding-left: 4px;
+}
+
+.new-post-form-textarea.test.edit:hover {
+
+    border-color: #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 /12%) !important;
+}
+
+#bottom-input-area{
+    margin-right: 165px;
 }
