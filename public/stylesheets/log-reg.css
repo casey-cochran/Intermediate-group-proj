@@ -154,6 +154,7 @@ input:focus::placeholder{
   position: fixed;
   z-index: -1;
   top: 0;
+  left: -11vh;
 
 }
 
@@ -178,12 +179,24 @@ input:focus::placeholder{
   height: 105vh;
   
 }
+.paint{
+
+  position: fixed;
+  z-index: -1;
+  bottom: 0;
+  left:-10vh;
+  
+
+}
 
 #paint{
-    height: 100vh;
-    width: 100vw;
+    height: 75vh;
+    /*= width: 100vw; 
     /* position: absolute; */
-    z-index: -1;
-    position: fixed;
-    top: 0;
+    /* /* z-index: -1; */
+   position: sticky;
+   bottom: 0;
+
+    
+   /* height: 100vh */
 }

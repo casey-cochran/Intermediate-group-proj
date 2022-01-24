@@ -3,13 +3,13 @@ extends layout.pug
 block content
 
   link(rel='stylesheet' href='/stylesheets/log-reg.css')
-  div(class="paint")
-    img(src="paint.jpeg" id='paint')
+  div(class="bkgd-div-right")
+    img(src="../fume.png" id='bkgd2')
 
   div(class='home-header-container')
     div(class="header-con-con")
       div(class="header-con")
-        div(class='home-header') Here are the newest Hobby Posts!
+        div(class='home-header') RECOMMENDED FOR YOU!
     each hobbyPost in hobbyPosts
       div(class='post-group')
         div(class='name-and-date-group')

@@ -1,5 +1,6 @@
 /* this is the home header */
 .home-header-container {
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
     margin: auto;
     margin-top: 40px;
     padding: 20px 0px 10px;
@@ -119,4 +120,48 @@
 .header-con-con{
     display: flex;
     justify-content: center;
+}
+
+.bkgd-div-right{
+  /* max-height: 10px;
+  max-width: 20px; */
+
+  /* bottom: -100px;
+  right: 0px;
+  z-index: -2;
+  position: absolute;
+  transform: scaleX(-1); */
+
+  /* bottom: -50px; */
+  /* left: -50px; */
+  /* width:50vw;
+  height: 50vh; */
+
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: -11vh;
+
+}
+
+#bkgd{
+   max-width: 800px;  
+  /* position: sticky;
+  bottom: -50px;
+  height: 100vh; */
+}
+#bkgd2{
+  /* max-height:1fr; */
+
+  /* height: fit-content;
+  max-height: 1000px; */
+
+  /* max-width: 200px; */
+
+  position: sticky;
+  top: 0;
+
+
+  height: 105vh;
+  
 }
