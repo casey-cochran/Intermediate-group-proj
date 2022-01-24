@@ -31,7 +31,8 @@ body {
 }
 
 .container.container.login-head.invisible{
-  background-color: transparent;
+  margin: 0;
+  background-color: white;
 }
 
 .left-side{

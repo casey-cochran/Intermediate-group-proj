@@ -2,8 +2,14 @@ extends layout.pug
 
 block content
 
+  link(rel='stylesheet' href='/stylesheets/log-reg.css')
+  div(class="homebk")
+    img(src="homebk.jpg" id='homebk')
+
   div(class='home-header-container')
-    div(class='home-header') Here are the newest Hobby Posts!
+    div(class="header-con-con")
+      div(class="header-con")
+        div(class='home-header') Here are the newest Hobby Posts!
     each hobbyPost in hobbyPosts
       div(class='post-group')
         div(class='name-and-date-group')
