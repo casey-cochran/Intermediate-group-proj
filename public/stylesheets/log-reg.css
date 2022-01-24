@@ -3,7 +3,7 @@ body{
     background-repeat: no-repeat;
     background-size:70% 200%; */
     /* background: linear-gradient(to right, goldenrod, white, white, white, white, goldenrod) */
-    
+
 }
 
 form{
@@ -12,7 +12,7 @@ form{
     padding: 15px;
     font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
     /* border: black solid; */
-   
+
 }
 
 .input {
@@ -27,7 +27,7 @@ form{
     margin-bottom: 50px;
     /* margin-left: 50px; */
     /* margin-right: 50px; */
-    font-family: monospace;
+    font-family: 'Georgia,Cambria,"Times New Roman",Times,serif';
 
     background-color: #fff;
     color: #495057;
@@ -166,13 +166,15 @@ input:focus::placeholder{
 #bkgd2{
   /* max-height:1fr; */
 
-  /* height: fit-content; 
+  /* height: fit-content;
   max-height: 1000px; */
 
   /* max-width: 200px; */
 
   position: sticky;
   top: 0;
+
+
   height: 105vh;
   
 }
