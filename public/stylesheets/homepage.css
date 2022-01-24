@@ -8,6 +8,11 @@
 
 }
 
+.home-header {
+    display: flex;
+    justify-content: center;
+}
+
 .name-and-date-group {
     display: flex;
     flex-direction: row;
@@ -145,7 +150,7 @@
 }
 
 #bkgd{
-   max-width: 800px;  
+   max-width: 800px;
   /* position: sticky;
   bottom: -50px;
   height: 100vh; */
@@ -163,5 +168,5 @@
 
 
   height: 105vh;
-  
+
 }

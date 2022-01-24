@@ -4,7 +4,7 @@ block content
     div(class="bkgd-div-right")
         img(src="../fume.png" id='bkgd2')
     div(class='home-header-container')
-        div(class='home-header') Hobby Posts to explore below
+        div(class='home-header') #{author.firstName} #{author.lastName}'s Hobby Posts
         each post in hobbyPosts
             div(class='post-group')
                 div(class='name-and-date-group users')
@@ -18,4 +18,3 @@ block content
                     if locals.user.id === post.userId
                         div(class='edit-delete-container')
                             a(href= `/hobbyposts/${post.id}/edit` class='btn') Edit
-                            a(href= `/hobbyposts/${post.id}/delete` class='btn' ) Delete
