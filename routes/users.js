@@ -79,9 +79,11 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     include: db.User,
     order: [["createdAt", "DESC"]]
   })
+  const author = await db.User.findByPk(userId)
+
 
   const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
-  res.render('user-posts-page', { userId, hobbyPosts, options })
+  res.render('user-posts-page', { userId, hobbyPosts, author, options })
 }))
 
 module.exports = router;
