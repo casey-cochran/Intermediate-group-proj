@@ -1,13 +1,26 @@
 # Inter-medium
 
-Inter-medium is an app centered around users sharing their hobbies with other users.
+Inter-medium is an app centered around users sharing their hobbies with other users. This applications takes inspiration from
+the website Medium. Developed in collaboration with 3 other developers, we mimicked some aspects of Medium while creating our own
+twist and styling designs. The main goal is to allow users to share their posts and for other users to like/comment on those posts. 
 
-# The app features a database that stores the following user information:
+## Wiki links
 
-* Users
-* HobbyPosts
-* Shakas (likes)
-* Comments
+* [Feature List](https://github.com/casey-cochran/Intermediate-group-proj/wiki/MVP-Feature-List)
+* [User Stories](https://github.com/casey-cochran/Intermediate-group-proj/wiki/User-Stories)
+* [Database Schema](https://github.com/casey-cochran/Intermediate-group-proj/wiki/Database-Schema)
+* [API Documentation](https://github.com/casey-cochran/Intermediate-group-proj/wiki/API-Documentation)
+* [Frontend Routes](https://github.com/casey-cochran/Intermediate-group-proj/wiki/Frontend-Routes)
+
+## Technologies used:
+
+* Javascript
+* Pug
+* HTML
+* CSS
+* Express
+* Sequelize
+* PostgreSQL
 
 ## Splash page 
 ![Screen Shot 2022-03-31 at 4 50 11 PM](https://user-images.githubusercontent.com/90711743/161167661-4fb62773-daac-4bcd-94ae-b6596d6fddee.png)
