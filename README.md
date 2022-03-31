@@ -2,14 +2,21 @@
 
 Inter-medium is an app centered around users sharing their hobbies with other users.
 
-The app features a database that stores the following user information:
+# The app features a database that stores the following user information:
 
 * Users
 * HobbyPosts
 * Shakas (likes)
 * Comments
 
-The app allows unregistered/unlogged-in users to do the following:
+## Splash page 
+![Screen Shot 2022-03-31 at 4 50 11 PM](https://user-images.githubusercontent.com/90711743/161167661-4fb62773-daac-4bcd-94ae-b6596d6fddee.png)
+
+## HobbyPost
+![Screen Shot 2022-03-31 at 4 51 03 PM](https://user-images.githubusercontent.com/90711743/161167743-2aa942d9-2ac3-4327-a949-ed1238f065c3.png)
+
+
+# The app allows unregistered/unlogged-in users to do the following:
 * Use the nav-bar on any page to navigate to the home, login, or register pages, or to be logged in as a demo user
 * Navigate to the home page to view all posts
 * Sign-up through the register page to become a logged-in registered user
@@ -17,7 +24,7 @@ The app allows unregistered/unlogged-in users to do the following:
 * View all posts of a particular user, by clicking their name
 * View the content of a post and all comments and likes, by clicking the title of a post
 
-The app allows logged-in registered users to do the following:
+# The app allows logged-in registered users to do the following:
 * Use the nav-bar on any page to navigate to the home, create post, and logout pages
 * Navigate to the home page to view all posts
 * Log-out through the log-out page to end the session, and lose some functionality of the app
@@ -29,7 +36,7 @@ The app allows logged-in registered users to do the following:
 * Edit and/or delete any post said user has made
 * Edit and/or delete any comment said user has made
 
-Inter-medium was created and contributed by:
+# Inter-medium was created and contributed by:
 
 * Casey Cochran
 * Sai Byri
